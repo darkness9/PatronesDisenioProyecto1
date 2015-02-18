@@ -15,8 +15,7 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
 /**
- *
- * @author darkness
+ * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
 public class AddNoticiaJPanel extends javax.swing.JPanel{
 

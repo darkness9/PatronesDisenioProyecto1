@@ -10,8 +10,7 @@ import Model.Unidad;
 import java.util.ArrayList;
 
 /**
- *
- * @author hugo
+ * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
 public class SuscriptorTest {
     public static void main ( String[] args ){

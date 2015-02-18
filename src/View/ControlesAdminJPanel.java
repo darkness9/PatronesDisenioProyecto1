@@ -10,8 +10,7 @@ import javax.swing.JSeparator;
 import javax.swing.SpringLayout;
 
 /**
- *
- * @author darkness
+ * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
 public class ControlesAdminJPanel extends javax.swing.JPanel {
 

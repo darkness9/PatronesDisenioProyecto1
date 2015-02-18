@@ -12,8 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
 /**
- *
- * @author darkness
+ * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
 public class AddSuscriptorJPanel extends javax.swing.JPanel {
     JLabel leyenda_addObs = new JLabel("COMPLETA LOS DATOS DEL SUSCRIPTOR");

@@ -9,8 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.SpringLayout;
 
 /**
- *
- * @author darkness
+ * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
 public class AdministradorJFrame extends javax.swing.JFrame{
 

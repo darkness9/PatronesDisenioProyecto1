@@ -3,8 +3,7 @@ package Controller;
 import Model.*;
 
 /**
- *
- * @author darkness
+ * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
 public class AlmacenistaDeNoticias {
     

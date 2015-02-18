@@ -4,10 +4,8 @@ import IteradoresConcretos.IteradorNoticiasSuscriptor;
 import Model.Noticia;
 import java.util.ArrayList;
 
-
 /**
- *
- * @author hugo
+ * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
 public class Suscriptor implements ObserverInterface, DisplayElementInterface {
     

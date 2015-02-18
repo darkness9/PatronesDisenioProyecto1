@@ -8,8 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.SpringLayout;
 
 /**
- *
- * @author darkness
+ * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
 public class RemSuscriptorJPanel extends javax.swing.JPanel{
 

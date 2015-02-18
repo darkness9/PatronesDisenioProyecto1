@@ -5,8 +5,7 @@ import PatronIterador.Iterator;
 import java.util.ArrayList;
 
 /**
- *
- * @author hugo
+ * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
 public class IteradorNoticiasSuscriptor implements Iterator {
     

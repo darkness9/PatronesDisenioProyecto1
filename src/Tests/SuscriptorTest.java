@@ -1,12 +1,8 @@
 package Tests;
 
-import Controller.NoticiasData;
-import Controller.Suscriptor;
-import IteradoresConcretos.IteradorNoticiasSuscriptor;
-import Model.Area;
-import Model.Noticia;
-import Model.Persona;
-import Model.Unidad;
+import Controller.*;
+//import IteradoresConcretos.IteradorNoticiasSuscriptor;
+import Model.*;
 import java.util.ArrayList;
 
 /**
@@ -85,7 +81,7 @@ public class SuscriptorTest {
         Suscriptor suscriptor6 =  new Suscriptor( "ITAM", dataNews,null );
 
         //dataNews.setAtributosNoticia( noticia5 );                           //Accesible por todos
-        
+    /*    
     //Impresión de las noticias
         
         //Impresión del suscriptor1
@@ -161,6 +157,6 @@ public class SuscriptorTest {
         }
         
         
-        
+        */
     }
 }

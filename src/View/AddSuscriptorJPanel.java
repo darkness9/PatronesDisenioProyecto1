@@ -1,7 +1,6 @@
 package View;
 
-import Controller.CreadorDeSuscriptores;
-import Controller.NoticiasData;
+import Controller.*;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,6 +14,7 @@ import javax.swing.SpringLayout;
  * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
 public class AddSuscriptorJPanel extends javax.swing.JPanel {
+    
     JLabel leyenda_addObs = new JLabel("COMPLETA LOS DATOS DEL SUSCRIPTOR");
     JLabel leyenda_nombreSuscriptor    = new JLabel("Nombre Suscriptor: ");
     JLabel leyenda_filtroSuscriptor    = new JLabel("Filtro Suscriptor: ");

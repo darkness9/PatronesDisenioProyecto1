@@ -10,8 +10,6 @@ public class CreadorDeSuscriptores {
     
     public CreadorDeSuscriptores(){
         
-        
-        
     }
     
     public void crearSuscriptor( String name, NoticiasData noticiasData, String filtronoticia ){

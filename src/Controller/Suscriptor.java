@@ -1,13 +1,14 @@
 package Controller;
 
-import IteradoresConcretos.IteradorNoticiasSuscriptor;
+//import IteradoresConcretos.IteradorNoticiasSuscriptor;
 import Model.Noticia;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
-public class Suscriptor implements ObserverInterface, DisplayElementInterface {
+public class Suscriptor implements ObserverInterface, DisplayElementInterface{
     
     private String nombresuscriptor;
     private ArrayList noticiasdelsuscriptor;
@@ -40,13 +41,9 @@ public class Suscriptor implements ObserverInterface, DisplayElementInterface {
 
     @Override
     public void display() {
-        System.out.println( "Suscriptor : " + this.getName() );
-        ArrayList noticiasSus = this.getNoticias();
-        int contador = 0;
-        IteradorNoticiasSuscriptor iteradorNoticiasSuscriptor = new IteradorNoticiasSuscriptor( noticiasSus );
+        Iterator iteradorNoticiasSuscriptor = noticiasdelsuscriptor.iterator();
         while( iteradorNoticiasSuscriptor.hasNext() ){
             Noticia noticia = ( Noticia )iteradorNoticiasSuscriptor.next();
-            contador++;
             System.out.println("Imprimiendo noticias desde: "+this.getName());
             System.out.println("----------------------------------");
             System.out.println("Titulo: "+noticia.getTituloNoticia());
@@ -63,5 +60,5 @@ public class Suscriptor implements ObserverInterface, DisplayElementInterface {
     public void displayatJFrame() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

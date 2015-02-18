@@ -21,7 +21,6 @@ public class RemSuscriptorJPanel extends javax.swing.JPanel{
     public RemSuscriptorJPanel(NoticiasData noticiasdata) {
         setBackground(new java.awt.Color(0, 0, 0,50));
         setPreferredSize(new Dimension(430,250));
-        //setVisible(false);
         SpringLayout layoutpanelremobs = new SpringLayout();
         this.setLayout(layoutpanelremobs);
         noticiasdataremobs=noticiasdata;

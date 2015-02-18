@@ -45,16 +45,17 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
     JButton btn_ingresar = new JButton("Ingresar Noticia");
     
     //Creamos la referencia a los controladores usando un par de objetos
-    AlmacenistaDeNoticias almacenista= new AlmacenistaDeNoticias();
+    AlmacenistaDeNoticias almacenistaaddnot= new AlmacenistaDeNoticias();
     NoticiasData noticiasdataaddnot = new NoticiasData();
     
-    public AddNoticiaJPanel(NoticiasData noticiasdata) {
+    public AddNoticiaJPanel(NoticiasData noticiasdata, AlmacenistaDeNoticias almacenista) {
         setBackground(new java.awt.Color(0, 0, 0,50));
         setPreferredSize(new Dimension(430,440));
         //setVisible(false);
         SpringLayout layoutpaneladdnot = new SpringLayout();
         this.setLayout(layoutpaneladdnot);
         noticiasdataaddnot = noticiasdata;
+        almacenistaaddnot  = almacenista;
         
         //Configuramos leyenda_addNoticia y deginimos las coordenadas x,y en que estará fija. 
         leyenda_addNoticia.setFont(new java.awt.Font("MV Boli", 1, 15));
@@ -163,7 +164,7 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
                         String.valueOf(eldia.getSelectedItem()+"/"
                         +String.valueOf(elmes.getSelectedItem()))+"/"
                         +String.valueOf(elanio.getSelectedItem()));
-                almacenista.setAtributosNoticia(eltitulo.getText(),
+                almacenistaaddnot.setAtributosNoticia(eltitulo.getText(),
                         new Persona(elautor.getText()),
                         new Unidad(String.valueOf(launidad.getSelectedItem())),
                         new Area(String.valueOf(elarea.getSelectedItem())),

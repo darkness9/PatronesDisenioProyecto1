@@ -9,11 +9,17 @@ import java.util.ArrayList;
 public class NoticiasData implements SubjectInterface{
 
     private ArrayList observers;
+   
     private Noticia noticia;
 
     public NoticiasData() {
         observers = new ArrayList();
-    } 
+    }
+    
+    
+    public ArrayList getObservers() {
+        return observers;
+    }
     
     @Override
     public void registerObserver(ObserverInterface ob) {

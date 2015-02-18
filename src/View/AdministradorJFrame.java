@@ -1,6 +1,7 @@
 
 package View;
 
+import Controller.AlmacenistaDeNoticias;
 import Controller.NoticiasData;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
@@ -19,6 +20,7 @@ public class AdministradorJFrame extends javax.swing.JFrame{
     AddNoticiaJPanel     panelAddNoticia;
     ControlesAdminJPanel panelControlesAdmin;
     NoticiasData noticiasdata = new NoticiasData();
+    AlmacenistaDeNoticias elalmacenista= new AlmacenistaDeNoticias();
     
     //Se crea la referencia al panel base que trae el JFrame
     Container contenedor = getContentPane();
@@ -69,7 +71,7 @@ public class AdministradorJFrame extends javax.swing.JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 contenedor.removeAll();
-                panelAddNoticia    = new AddNoticiaJPanel(noticiasdata);
+                panelAddNoticia    = new AddNoticiaJPanel(noticiasdata,elalmacenista);
                 layout.putConstraint(SpringLayout.WEST,panelAddNoticia,220, SpringLayout.WEST,contenedor);
                 layout.putConstraint(SpringLayout.NORTH,panelAddNoticia,120, SpringLayout.NORTH,contenedor);
                 contenedor.add(panelAddNoticia);

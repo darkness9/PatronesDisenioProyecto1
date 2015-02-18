@@ -1,11 +1,8 @@
 package View;
 
 import Controller.AlmacenistaDeNoticias;
-import Controller.IztapalapaDisplay;
 import Controller.NoticiasData;
 import Model.Area;
-import Model.ColeccionNoticias;
-import Model.Noticia;
 import Model.Persona;
 import Model.Unidad;
 import java.awt.Dimension;

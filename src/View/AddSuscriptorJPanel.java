@@ -70,7 +70,12 @@ public class AddSuscriptorJPanel extends javax.swing.JPanel {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                elcreador.crearSuscriptor(elnombre.getText(), noticiasdataaddsus, String.valueOf(filtronoticia.getSelectedItem()));
+                if(elnombre.getText().equals("")){
+                    System.out.println("Debes agregar un nombre de suscriptor");
+                }else{
+                    elcreador.crearSuscriptor(elnombre.getText(), noticiasdataaddsus, String.valueOf(filtronoticia.getSelectedItem()));
+                    elnombre.setText("");
+                }
             }
         });
         layoutpaneladdobs.putConstraint(SpringLayout.WEST,btn_suscribir,140, SpringLayout.WEST,this);

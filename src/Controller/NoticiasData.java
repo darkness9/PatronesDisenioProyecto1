@@ -11,7 +11,6 @@ public class NoticiasData implements SubjectInterface{
     private ArrayList observers;
     private ArrayList observerscpopy;
     private Vector nombresobservadores;
-    private int numerodeobservador=0;
     private Noticia noticia;
 
     public NoticiasData() {
@@ -27,7 +26,6 @@ public class NoticiasData implements SubjectInterface{
     @Override
     public void removeObserver(ObserverInterface ob) {
         int i = observers.indexOf(ob);
-        //System.out.println("La posición a buscar es: "+i);
         if(i>=0){
             observers.remove(i);
         }else{
@@ -67,7 +65,6 @@ public class NoticiasData implements SubjectInterface{
     }
      
     public void buscaObservadoraRemorer(String nombreobservador){
-        //System.out.println("El nombre del observador es: "+nombreobservador);
         if(observers.isEmpty()){
             System.out.println("El arreglo de observadores está vacio");
         }else{

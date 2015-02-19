@@ -40,7 +40,7 @@ public class SuscriptorJPanel extends javax.swing.JPanel{
         elscroll.setViewportView(listadenoticias);
         
         //Se personaliza el fondo_jpanel
-        fondo_jpanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo400x300.png")));
+        fondo_jpanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo600x300.png")));
         
         //Se agregan los alementos al panel
         this.add(elscroll);

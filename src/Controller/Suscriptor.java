@@ -16,7 +16,7 @@ public class Suscriptor implements ObserverInterface, DisplayElementInterface{
     private ArrayList noticiasdelsuscriptor;
     private NoticiasData noticiasdata;
     private String fitronoticia;
-    SuscriptorJFrame elsuscriptorJframe = new SuscriptorJFrame();
+    SuscriptorJFrame elsuscriptorJframe;
  
     public Suscriptor( String nombreSuscriptor, NoticiasData noticiasdata,String filtronoticia){
         noticiasdelsuscriptor = new ArrayList();
@@ -24,7 +24,7 @@ public class Suscriptor implements ObserverInterface, DisplayElementInterface{
         this.noticiasdata = noticiasdata;
         this.fitronoticia = filtronoticia;
         noticiasdata.registerObserver(this);
-        
+        elsuscriptorJframe = new SuscriptorJFrame(this.nombresuscriptor,this.fitronoticia);
         
         //elsuscriptorJframe.loselementos.add("Jerry");
         //System.out.println("Suscriptor creado correctamente, el filtro es: "+this.fitronoticia);

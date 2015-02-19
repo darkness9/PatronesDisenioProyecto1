@@ -21,6 +21,7 @@ public class AdministradorJFrame extends javax.swing.JFrame{
     ControlesAdminJPanel panelControlesAdmin;
     NoticiasData noticiasdata = new NoticiasData();
     AlmacenistaDeNoticias elalmacenista= new AlmacenistaDeNoticias();
+   
     
     //Se crea la referencia al panel base que trae el JFrame
     Container contenedor = getContentPane();

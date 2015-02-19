@@ -2,6 +2,7 @@ package Controller;
 
 //import IteradoresConcretos.IteradorNoticiasSuscriptor;
 import Model.Noticia;
+import View.SuscriptorJFrame;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -14,14 +15,16 @@ public class Suscriptor implements ObserverInterface, DisplayElementInterface{
     private ArrayList noticiasdelsuscriptor;
     private NoticiasData noticiasdata;
     private String fitronoticia;
+    SuscriptorJFrame elsuscriptor;
  
     public Suscriptor( String nombreSuscriptor, NoticiasData noticiasdata,String filtronoticia){
         noticiasdelsuscriptor = new ArrayList();
         this.nombresuscriptor = nombreSuscriptor;
         this.noticiasdata = noticiasdata;
         this.fitronoticia = filtronoticia;
-        noticiasdata.registerObserver(this);        
-        System.out.println("Suscriptor creado correctamente, el filtro es: "+this.fitronoticia);
+        noticiasdata.registerObserver(this);  
+        elsuscriptor = new SuscriptorJFrame(this.nombresuscriptor);
+        //System.out.println("Suscriptor creado correctamente, el filtro es: "+this.fitronoticia);
     }      
 
     @Override
@@ -58,7 +61,7 @@ public class Suscriptor implements ObserverInterface, DisplayElementInterface{
 
     @Override
     public void displayatJFrame() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
 }

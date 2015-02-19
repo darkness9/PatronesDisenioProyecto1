@@ -2,6 +2,7 @@ package View;
 
 import java.awt.Dimension;
 import java.util.Vector;
+import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
@@ -16,14 +17,16 @@ public class SuscriptorJPanel extends javax.swing.JPanel{
     private JLabel fondo_jpanel;
     private JList listadenoticias;
     private JScrollPane elscroll;
-    public Vector loselementos=new Vector();
+    public DefaultListModel modelodelalista = new DefaultListModel();
 
     public SuscriptorJPanel() {
         setPreferredSize(new Dimension(400,300));
         SpringLayout layoutpanelcontroles = new SpringLayout();
         this.setLayout(layoutpanelcontroles);
-        /*loselementos.add("Noticia uno");
-        loselementos.add("Noticia dos");
+        modelodelalista.addElement("Noticia uno");
+        modelodelalista.addElement("Noticia dos");
+        modelodelalista.addElement("Noticia tres");
+        /*loselementos.add("Noticia dos");
         loselementos.add("Noticia tres");
         loselementos.add("Noticia cuatro");
         loselementos.add("Noticia cinco");
@@ -45,7 +48,9 @@ public class SuscriptorJPanel extends javax.swing.JPanel{
         
         //inicializacion de los elementos de la interfáz//
         fondo_jpanel = new JLabel();
-        listadenoticias = new JList(loselementos);
+        listadenoticias = new JList(modelodelalista);
+        
+        //Atributos de los elementos
         listadenoticias.setOpaque(false);
         listadenoticias.setBackground(new java.awt.Color(0,0,0,0));
         listadenoticias.setForeground(new java.awt.Color(241, 242, 235));
@@ -61,6 +66,7 @@ public class SuscriptorJPanel extends javax.swing.JPanel{
         
         this.add(elscroll);
         this.add(fondo_jpanel);
+        
         
     }
     

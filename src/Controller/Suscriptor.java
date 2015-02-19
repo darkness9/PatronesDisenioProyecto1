@@ -3,6 +3,7 @@ package Controller;
 //import IteradoresConcretos.IteradorNoticiasSuscriptor;
 import Model.Noticia;
 import View.SuscriptorJFrame;
+import View.SuscriptorJPanel;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -15,7 +16,7 @@ public class Suscriptor implements ObserverInterface, DisplayElementInterface{
     private ArrayList noticiasdelsuscriptor;
     private NoticiasData noticiasdata;
     private String fitronoticia;
-    SuscriptorJFrame elsuscriptorJframe;
+    SuscriptorJFrame elsuscriptorJframe = new SuscriptorJFrame();
  
     public Suscriptor( String nombreSuscriptor, NoticiasData noticiasdata,String filtronoticia){
         noticiasdelsuscriptor = new ArrayList();
@@ -24,7 +25,7 @@ public class Suscriptor implements ObserverInterface, DisplayElementInterface{
         this.fitronoticia = filtronoticia;
         noticiasdata.registerObserver(this);
         
-        elsuscriptorJframe = new SuscriptorJFrame(this.nombresuscriptor);
+        
         //elsuscriptorJframe.loselementos.add("Jerry");
         //System.out.println("Suscriptor creado correctamente, el filtro es: "+this.fitronoticia);
     }      
@@ -34,9 +35,8 @@ public class Suscriptor implements ObserverInterface, DisplayElementInterface{
         System.out.println(((Noticia)noticia).getUnidadNoticia()+","+((Noticia)noticia).getAreaNoticia()+","+((Noticia)noticia).getTipoNoticia());
         if(((Noticia)noticia).getUnidadNoticia().contains(this.fitronoticia)||((Noticia)noticia).getAreaNoticia().contains(this.fitronoticia)||((Noticia)noticia).getTipoNoticia().contains(this.fitronoticia)){
             noticiasdelsuscriptor.add(noticia);
-            elsuscriptorJframe.loselementos.add("Jerry");
-            display();
-            
+            elsuscriptorJframe.agregaElemento("jerry");
+            display();            
         }
     }
     public String getName(  ){

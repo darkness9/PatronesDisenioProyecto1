@@ -1,7 +1,6 @@
 package View;
 
 import java.awt.Dimension;
-import java.util.Vector;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -17,7 +16,7 @@ public class SuscriptorJPanel extends javax.swing.JPanel{
     private JLabel fondo_jpanel;
     private JList listadenoticias;
     private JScrollPane elscroll;
-    public DefaultListModel modelodelalista = new DefaultListModel();
+    public DefaultListModel modelodelalista;
 
     public SuscriptorJPanel() {
         setPreferredSize(new Dimension(600,300));
@@ -26,6 +25,7 @@ public class SuscriptorJPanel extends javax.swing.JPanel{
         
         //inicializacion de los elementos de la interfáz//
         fondo_jpanel = new JLabel();
+        modelodelalista = new DefaultListModel();
         listadenoticias = new JList(modelodelalista);
         
         //Atributos de los elementos

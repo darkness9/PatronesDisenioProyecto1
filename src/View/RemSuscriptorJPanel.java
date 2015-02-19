@@ -49,7 +49,6 @@ public class RemSuscriptorJPanel extends javax.swing.JPanel{
                     System.out.println("No hay suscriptores por remover!");
                 }else{ 
                     noticiasdataremobs.buscaObservadoraRemorer(String.valueOf(cbox_observadoresRem.getSelectedItem()));
-                    noticiasdataremobs.getObserversNames();
                     cbox_observadoresRem.setSelectedIndex(0);
                 }
                 

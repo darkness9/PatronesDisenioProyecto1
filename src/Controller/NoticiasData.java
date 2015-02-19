@@ -28,6 +28,11 @@ public class NoticiasData implements SubjectInterface{
         int i = observers.indexOf(ob);
         if(i>=0){
             observers.remove(i);
+            System.out.println("Objetor removido");
+            getObserversNames();//de este modo cada que removamos un suscriptor se actualiza el combobox que contenia su nombre
+            ((Suscriptor)ob).cerrarJFrame();//
+            //ob=null;
+            //System.gc();
         }else{
             System.out.println("El suscritor no existe");
         }

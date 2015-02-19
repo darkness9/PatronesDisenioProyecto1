@@ -30,7 +30,7 @@ public class AdministradorJFrame extends javax.swing.JFrame{
     public AdministradorJFrame() {
         /*Configuración de la pantalla  principal*/
         setTitle("VENTANA DEL ADMINISTRADOR DE NOTICIAS");
-        setSize(700,600);
+        setSize(1000,600);
         setLocation(350,75);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

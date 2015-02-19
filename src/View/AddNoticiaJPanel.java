@@ -47,6 +47,7 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
     //Creamos la referencia a los controladores usando un par de objetos
     AlmacenistaDeNoticias almacenistaaddnot= new AlmacenistaDeNoticias();
     NoticiasData noticiasdataaddnot = new NoticiasData();
+    //SuscriptorJPanel elsusc;
     
     public AddNoticiaJPanel(NoticiasData noticiasdata, AlmacenistaDeNoticias almacenista) {
         setBackground(new java.awt.Color(0, 0, 0,50));
@@ -155,6 +156,8 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                //elobjetolista.elmodelo.addElement(eltitulo.getText());
+                //elsusc.modelodelalista.addElement(eltitulo.getText());
                 noticiasdataaddnot.setAtributosNoticia(eltitulo.getText(),
                         new Persona(elautor.getText()),
                         new Unidad(String.valueOf(launidad.getSelectedItem())),

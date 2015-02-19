@@ -3,7 +3,6 @@ package Controller;
 //import IteradoresConcretos.IteradorNoticiasSuscriptor;
 import Model.Noticia;
 import View.SuscriptorJFrame;
-import View.SuscriptorJPanel;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -24,10 +23,7 @@ public class Suscriptor implements ObserverInterface, DisplayElementInterface{
         this.noticiasdata = noticiasdata;
         this.fitronoticia = filtronoticia;
         noticiasdata.registerObserver(this);
-        elsuscriptorJframe = new SuscriptorJFrame(this.nombresuscriptor,this.fitronoticia);
-        
-        //elsuscriptorJframe.loselementos.add("Jerry");
-        //System.out.println("Suscriptor creado correctamente, el filtro es: "+this.fitronoticia);
+        elsuscriptorJframe = new SuscriptorJFrame(this.nombresuscriptor,this.fitronoticia,this);
     }      
 
     @Override
@@ -65,7 +61,15 @@ public class Suscriptor implements ObserverInterface, DisplayElementInterface{
 
     @Override
     public void displayatJFrame(Noticia noticia) {
-        elsuscriptorJframe.agregaElemento(noticia.getTituloNoticia()+","+noticia.getUnidadNoticia()+","+noticia.getAreaNoticia()+","+noticia.getTipoNoticia());
+        elsuscriptorJframe.agregaElementoaLista(noticia.getTituloNoticia()+","+noticia.getUnidadNoticia()+","+noticia.getAreaNoticia()+","+noticia.getTipoNoticia());
     }
 
+    public void peticionRemover(){
+        noticiasdata.removeObserver(this);
+    }
+    
+    public void cerrarJFrame(){
+        elsuscriptorJframe.dispose();
+    }
+        
 }

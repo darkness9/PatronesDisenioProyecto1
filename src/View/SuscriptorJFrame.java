@@ -1,11 +1,11 @@
 package View;
 
 import Controller.NoticiasData;
+import Controller.Suscriptor;
 import java.awt.Container;
-import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
-import java.util.Vector;
-import javax.swing.JFrame;
+import java.awt.event.WindowListener;
+import java.awt.event.WindowStateListener;
 import javax.swing.SpringLayout;
 
 /**
@@ -18,9 +18,10 @@ public class SuscriptorJFrame extends javax.swing.JFrame{
     Container contenedor = getContentPane();
     SpringLayout layout = new SpringLayout();
     String nombresuscriptor;
-    NoticiasData noticiasdataremobs = new NoticiasData();
+    Suscriptor suscriptorobjeto;
+    NoticiasData noticiasdata = new NoticiasData();
     
-    public SuscriptorJFrame(String nombreusuario,String elfiltro) {
+    public SuscriptorJFrame(String nombreusuario,String elfiltro,Suscriptor suscriptor) {
     
     /*Configuración de la pantalla  principal*/
     setTitle("SUSCRIPTOR: "+nombreusuario+" FILTRO: "+elfiltro);
@@ -28,15 +29,51 @@ public class SuscriptorJFrame extends javax.swing.JFrame{
     setLocation(600,75);
     setResizable(false);
     setVisible(true);
-    setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+    this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     contenedor.setLayout(layout); 
     contenedor.add(suscriptorpanel);
+    this.suscriptorobjeto=suscriptor;
     
+    this.addWindowListener(new WindowListener() {
+
+        @Override
+        public void windowOpened(WindowEvent e) {
+            
+        }
+
+        @Override
+        public void windowClosing(WindowEvent e) {
+            suscriptorobjeto.peticionRemover();
+        }
+
+        @Override
+        public void windowClosed(WindowEvent e) {
+            //System.out.println("You are the best");
+        }
+        @Override
+        public void windowIconified(WindowEvent e) {
+            
+        }
+
+        @Override
+        public void windowDeiconified(WindowEvent e) {
+            
+        }
+
+        @Override
+        public void windowActivated(WindowEvent e) {
+            
+        }
+
+        @Override
+        public void windowDeactivated(WindowEvent e) {
+            
+        }
+    });
     } 
     
-    public void agregaElemento(String titulo){
-        suscriptorpanel.modelodelalista.addElement(titulo);
-    }
-    
+    public void agregaElementoaLista(String noticia){
+        suscriptorpanel.modelodelalista.addElement(noticia);
+    }   
     
 }

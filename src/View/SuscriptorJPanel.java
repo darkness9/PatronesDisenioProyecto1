@@ -22,7 +22,7 @@ public class SuscriptorJPanel extends javax.swing.JPanel{
         setPreferredSize(new Dimension(400,300));
         SpringLayout layoutpanelcontroles = new SpringLayout();
         this.setLayout(layoutpanelcontroles);
-        loselementos.add("Noticia uno");
+        /*loselementos.add("Noticia uno");
         loselementos.add("Noticia dos");
         loselementos.add("Noticia tres");
         loselementos.add("Noticia cuatro");
@@ -41,7 +41,8 @@ public class SuscriptorJPanel extends javax.swing.JPanel{
         loselementos.add("Noticia dos");
         loselementos.add("Noticia tres");
         loselementos.add("Noticia cuatro");
-        loselementos.add("Noticia cinco");
+        loselementos.add("Noticia cinco");*/
+        
         //inicializacion de los elementos de la interfáz//
         fondo_jpanel = new JLabel();
         listadenoticias = new JList(loselementos);

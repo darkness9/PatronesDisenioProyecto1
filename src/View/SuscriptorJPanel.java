@@ -20,31 +20,9 @@ public class SuscriptorJPanel extends javax.swing.JPanel{
     public DefaultListModel modelodelalista = new DefaultListModel();
 
     public SuscriptorJPanel() {
-        setPreferredSize(new Dimension(400,300));
+        setPreferredSize(new Dimension(600,300));
         SpringLayout layoutpanelcontroles = new SpringLayout();
         this.setLayout(layoutpanelcontroles);
-        modelodelalista.addElement("Noticia uno");
-        modelodelalista.addElement("Noticia dos");
-        modelodelalista.addElement("Noticia tres");
-        /*loselementos.add("Noticia dos");
-        loselementos.add("Noticia tres");
-        loselementos.add("Noticia cuatro");
-        loselementos.add("Noticia cinco");
-        loselementos.add("Noticia uno");
-        loselementos.add("Noticia dos");
-        loselementos.add("Noticia tres");
-        loselementos.add("Noticia cuatro");
-        loselementos.add("Noticia cinco");
-        loselementos.add("Noticia uno");
-        loselementos.add("Noticia dos");
-        loselementos.add("Noticia tres");
-        loselementos.add("Noticia cuatro");
-        loselementos.add("Noticia cinco");
-        loselementos.add("Noticia uno");
-        loselementos.add("Noticia dos");
-        loselementos.add("Noticia tres");
-        loselementos.add("Noticia cuatro");
-        loselementos.add("Noticia cinco");*/
         
         //inicializacion de los elementos de la interfáz//
         fondo_jpanel = new JLabel();
@@ -54,20 +32,19 @@ public class SuscriptorJPanel extends javax.swing.JPanel{
         listadenoticias.setOpaque(false);
         listadenoticias.setBackground(new java.awt.Color(0,0,0,0));
         listadenoticias.setForeground(new java.awt.Color(241, 242, 235));
-        listadenoticias.setFont(new java.awt.Font("MV Boli", 1, 15));
+        listadenoticias.setFont(new java.awt.Font("MV Boli", 1, 12));
         elscroll = new JScrollPane();
-        elscroll.setPreferredSize(new Dimension(400,300));
+        elscroll.setPreferredSize(new Dimension(600,300));
         elscroll.setOpaque(false);
         elscroll.getViewport().setOpaque(false);
         elscroll.setViewportView(listadenoticias);
         
-        /*Se personaliza el fondo_jpanel*/
+        //Se personaliza el fondo_jpanel
         fondo_jpanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo400x300.png")));
         
+        //Se agregan los alementos al panel
         this.add(elscroll);
-        this.add(fondo_jpanel);
-        
-        
+        this.add(fondo_jpanel);        
     }
     
     

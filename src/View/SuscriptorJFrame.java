@@ -21,7 +21,7 @@ public class SuscriptorJFrame extends javax.swing.JFrame{
     
     /*Configuración de la pantalla  principal*/
     setTitle("VENTANA SUSCRIPTOR ");
-    setSize(400,300);
+    setSize(600,300);
     setLocation(700,75);
     setResizable(false);
     setVisible(true);

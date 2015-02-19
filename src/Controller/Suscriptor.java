@@ -35,8 +35,8 @@ public class Suscriptor implements ObserverInterface, DisplayElementInterface{
         System.out.println(((Noticia)noticia).getUnidadNoticia()+","+((Noticia)noticia).getAreaNoticia()+","+((Noticia)noticia).getTipoNoticia());
         if(((Noticia)noticia).getUnidadNoticia().contains(this.fitronoticia)||((Noticia)noticia).getAreaNoticia().contains(this.fitronoticia)||((Noticia)noticia).getTipoNoticia().contains(this.fitronoticia)){
             noticiasdelsuscriptor.add(noticia);
-            elsuscriptorJframe.agregaElemento("jerry");
             display();            
+            displayatJFrame((Noticia)noticia);
         }
     }
     public String getName(  ){
@@ -64,8 +64,8 @@ public class Suscriptor implements ObserverInterface, DisplayElementInterface{
     }
 
     @Override
-    public void displayatJFrame() {
-        
+    public void displayatJFrame(Noticia noticia) {
+        elsuscriptorJframe.agregaElemento(noticia.getTituloNoticia()+","+noticia.getUnidadNoticia()+","+noticia.getAreaNoticia()+","+noticia.getTipoNoticia());
     }
 
 }

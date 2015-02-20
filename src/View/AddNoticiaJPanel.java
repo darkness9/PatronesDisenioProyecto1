@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
@@ -29,11 +30,11 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
     JLabel leyenda_fechaNoticia  = new JLabel("Fecha Noticia");
     JTextField eltitulo = new JTextField(17);
     JTextField elautor = new JTextField(17);
-    String[] unidad_noticia = new String[]{"Azcapotzalco","Iztapalapa","Xochimilco","Cuajimalpa","Lerma"};
+    String[] unidad_noticia = new String[]{"Unidad de Publicación","Azcapotzalco","Iztapalapa","Xochimilco","Cuajimalpa","Lerma"};
     JComboBox launidad = new JComboBox(unidad_noticia);
-    String[] area_noticia = new String[]{"Ingeniería","Ciencias de la salud","Ciencias Básicas","Diseño","Ciencias Sociales"};
+    String[] area_noticia = new String[]{"Area de la noticia","Ingeniería","Ciencias de la salud","Ciencias Básicas","Diseño","Ciencias Sociales"};
     JComboBox elarea = new JComboBox(area_noticia);
-    String[] tipo_noticia = new String[]{"Investigación","Desarrollo Tecnológico"};
+    String[] tipo_noticia = new String[]{"Tipo de la noticia","Investigación","Desarrollo Tecnológico"};
     JComboBox eltipo = new JComboBox(tipo_noticia);
     JTextField eltexto = new JTextField(17);
     String[] dia_noticia = new String[]{"Dia","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31"};
@@ -45,18 +46,24 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
     JButton btn_ingresar = new JButton("Ingresar Noticia");
     
     //Creamos la referencia a los controladores usando un par de objetos
-    AlmacenistaDeNoticias almacenistaaddnot= new AlmacenistaDeNoticias();
-    NoticiasData noticiasdataaddnot = new NoticiasData();
+    AlmacenistaDeNoticias almacenistaaddnot;
+    NoticiasData noticiasdataaddnot;
+    ListaNoticiasJPanel listadenoticiaspanel;
+    AdministradorJFrame adminframe;
+    //ControlesAdminJPanel controlesadminpanel;
     //SuscriptorJPanel elsusc;
     
-    public AddNoticiaJPanel(NoticiasData noticiasdata, AlmacenistaDeNoticias almacenista) {
+    public AddNoticiaJPanel(NoticiasData noticiasdata, AlmacenistaDeNoticias almacenista,ListaNoticiasJPanel listadenoticiaspanel,AdministradorJFrame adminframe) {
         setBackground(new java.awt.Color(0, 0, 0,50));
         setPreferredSize(new Dimension(430,440));
         //setVisible(false);
         SpringLayout layoutpaneladdnot = new SpringLayout();
         this.setLayout(layoutpaneladdnot);
-        noticiasdataaddnot = noticiasdata;
-        almacenistaaddnot  = almacenista;
+       this. noticiasdataaddnot = noticiasdata;
+       this. almacenistaaddnot  = almacenista;
+       this.listadenoticiaspanel=listadenoticiaspanel;
+       this.adminframe=adminframe;
+       //this.controlesadminpanel=controlesadminpanel;
         
         //Configuramos leyenda_addNoticia y deginimos las coordenadas x,y en que estará fija. 
         leyenda_addNoticia.setFont(new java.awt.Font("MV Boli", 1, 15));
@@ -158,24 +165,33 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
             public void actionPerformed(ActionEvent e) {
                 //elobjetolista.elmodelo.addElement(eltitulo.getText());
                 //elsusc.modelodelalista.addElement(eltitulo.getText());
-                noticiasdataaddnot.setAtributosNoticia(eltitulo.getText(),
-                        new Persona(elautor.getText()),
-                        new Unidad(String.valueOf(launidad.getSelectedItem())),
-                        new Area(String.valueOf(elarea.getSelectedItem())),
-                        String.valueOf(eltipo.getSelectedItem()),
-                        eltexto.getText(),
-                        String.valueOf(eldia.getSelectedItem()+"/"
-                        +String.valueOf(elmes.getSelectedItem()))+"/"
-                        +String.valueOf(elanio.getSelectedItem()));
-                almacenistaaddnot.setAtributosNoticia(eltitulo.getText(),
-                        new Persona(elautor.getText()),
-                        new Unidad(String.valueOf(launidad.getSelectedItem())),
-                        new Area(String.valueOf(elarea.getSelectedItem())),
-                        String.valueOf(eltipo.getSelectedItem()),
-                        eltexto.getText(),
-                        String.valueOf(eldia.getSelectedItem()+"/"
-                        +String.valueOf(elmes.getSelectedItem()))+"/"
-                        +String.valueOf(elanio.getSelectedItem()));
+               /* if(eltitulo.getText().equals("")||elautor.getText().equals("")||eltexto.getText().equals("")||eldia.getSelectedIndex()==0||
+                        elmes.getSelectedIndex()==0||elanio.getSelectedIndex()==0||launidad.getSelectedIndex()==0||elarea.getSelectedIndex()==0||
+                        eltipo.getSelectedIndex()==0){
+                    JOptionPane.showMessageDialog(null, "Recuerda no dejar atributos en blanco y fijar correctamente fecha, unidad, area y tipo", "Hey!", JOptionPane.WARNING_MESSAGE);
+                }else{*/
+                    listadenoticiaspanel.modelodelalista.addElement(eltitulo.getText()+", "+elautor.getText());
+                    //controlesadminpanel.refrescaPantalla();
+                    adminframe.refrescaPantalla();
+                    noticiasdataaddnot.setAtributosNoticia(eltitulo.getText(),
+                            new Persona(elautor.getText()),
+                            new Unidad(String.valueOf(launidad.getSelectedItem())),
+                            new Area(String.valueOf(elarea.getSelectedItem())),
+                            String.valueOf(eltipo.getSelectedItem()),
+                            eltexto.getText(),
+                            String.valueOf(eldia.getSelectedItem()+"/"
+                            +String.valueOf(elmes.getSelectedItem()))+"/"
+                            +String.valueOf(elanio.getSelectedItem()));
+                    almacenistaaddnot.setAtributosNoticia(eltitulo.getText(),
+                            new Persona(elautor.getText()),
+                            new Unidad(String.valueOf(launidad.getSelectedItem())),
+                            new Area(String.valueOf(elarea.getSelectedItem())),
+                            String.valueOf(eltipo.getSelectedItem()),
+                            eltexto.getText(),
+                            String.valueOf(eldia.getSelectedItem()+"/"
+                            +String.valueOf(elmes.getSelectedItem()))+"/"
+                            +String.valueOf(elanio.getSelectedItem()));
+               // }
                 
             }
         });

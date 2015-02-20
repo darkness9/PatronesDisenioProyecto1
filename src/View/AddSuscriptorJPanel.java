@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.SpringLayout;
 
@@ -71,7 +72,8 @@ public class AddSuscriptorJPanel extends javax.swing.JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(elnombre.getText().equals("")){
-                    System.out.println("Debes agregar un nombre de suscriptor");
+                    //System.out.println("Debes agregar un nombre de suscriptor");
+                    JOptionPane.showMessageDialog(null, "Falta el nombre del suscriptor", "Hey!", JOptionPane.WARNING_MESSAGE);                
                 }else{
                     elcreador.crearSuscriptor(elnombre.getText(), noticiasdataaddsus, String.valueOf(filtronoticia.getSelectedItem()));
                     elnombre.setText("");

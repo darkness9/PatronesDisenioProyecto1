@@ -13,7 +13,7 @@ import javax.swing.SpringLayout;
  */
 public class SuscriptorJFrame extends javax.swing.JFrame{
     
-    SuscriptorJPanel suscriptorpanel = new SuscriptorJPanel();
+    ListaNoticiasJPanel suscriptorpanel = new ListaNoticiasJPanel(true,270,null);
     //Se crea la referencia al panel base que trae el JFrame
     Container contenedor = getContentPane();
     SpringLayout layout = new SpringLayout();
@@ -25,7 +25,7 @@ public class SuscriptorJFrame extends javax.swing.JFrame{
     
     /*Configuración de la pantalla  principal*/
     setTitle("SUSCRIPTOR: "+nombreusuario+" FILTRO: "+elfiltro);
-    setSize(600,300);
+    setSize(400,300);
     setLocation(600,75);
     setResizable(false);
     setVisible(true);
@@ -34,7 +34,7 @@ public class SuscriptorJFrame extends javax.swing.JFrame{
     contenedor.add(suscriptorpanel);
     this.suscriptorobjeto=suscriptor;
     
-    this.addWindowListener(new WindowListener() {
+    /*this.addWindowListener(new WindowListener() {
 
         @Override
         public void windowOpened(WindowEvent e) {
@@ -69,7 +69,7 @@ public class SuscriptorJFrame extends javax.swing.JFrame{
         public void windowDeactivated(WindowEvent e) {
             
         }
-    });
+    });*/
     } 
     
     public void agregaElementoaLista(String noticia){

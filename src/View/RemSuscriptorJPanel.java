@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SpringLayout;
 
 /**
@@ -46,7 +47,8 @@ public class RemSuscriptorJPanel extends javax.swing.JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(cbox_observadoresRem.getSelectedItem().equals("Suscriptores")){
-                    System.out.println("No hay suscriptores por remover!");
+                    //System.out.println("No hay suscriptores por remover!");
+                    JOptionPane.showMessageDialog(null, "No hay suscriptores por remover", "Hey!", JOptionPane.WARNING_MESSAGE);
                 }else{ 
                     noticiasdataremobs.buscaObservadoraRemorer(String.valueOf(cbox_observadoresRem.getSelectedItem()));
                     cbox_observadoresRem.setSelectedIndex(0);

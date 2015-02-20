@@ -61,7 +61,7 @@ public class Suscriptor implements ObserverInterface, DisplayElementInterface{
 
     @Override
     public void displayatJFrame(Noticia noticia) {
-        elsuscriptorJframe.agregaElementoaLista(noticia.getTituloNoticia()+","+noticia.getUnidadNoticia()+","+noticia.getAreaNoticia()+","+noticia.getTipoNoticia());
+        elsuscriptorJframe.agregaElementoaLista(noticia.getTituloNoticia()+","+noticia.getAutorNoticia());
     }
 
     public void peticionRemover(){

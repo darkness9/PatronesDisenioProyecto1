@@ -19,8 +19,10 @@ public class AdministradorJFrame extends javax.swing.JFrame{
     AddSuscriptorJPanel  panelAddSuscriptor;
     AddNoticiaJPanel     panelAddNoticia;
     ControlesAdminJPanel panelControlesAdmin;
+    ListaNoticiasJPanel  panelDeNoticias;
     NoticiasData noticiasdata = new NoticiasData();
     AlmacenistaDeNoticias elalmacenista= new AlmacenistaDeNoticias();
+    boolean controlfondo=false;
    
     
     //Se crea la referencia al panel base que trae el JFrame
@@ -30,13 +32,18 @@ public class AdministradorJFrame extends javax.swing.JFrame{
     public AdministradorJFrame() {
         /*Configuración de la pantalla  principal*/
         setTitle("VENTANA DEL ADMINISTRADOR DE NOTICIAS");
-        setSize(1000,600);
-        setLocation(350,75);
+        setSize(1140,600);
+        setLocation(75,75);
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         contenedor.setLayout(layout);
         panelControlesAdmin= new ControlesAdminJPanel();
+        panelDeNoticias= new ListaNoticiasJPanel(controlfondo,440,this );       
+        layout.putConstraint(SpringLayout.WEST,panelDeNoticias,710, SpringLayout.WEST,contenedor);                                                                                                //****************************************************************************///By Huaca
+        layout.putConstraint(SpringLayout.NORTH,panelDeNoticias,120, SpringLayout.NORTH,contenedor); 
+        contenedor.add(panelDeNoticias);
         contenedor.add(panelControlesAdmin);
+        panelAddNoticia    = new AddNoticiaJPanel(noticiasdata,elalmacenista,panelDeNoticias,this);
         
         //Se personalizan los eventos del panelControlesAdmin
         panelControlesAdmin.btn_addobserver.addActionListener(new ActionListener() {
@@ -71,16 +78,67 @@ public class AdministradorJFrame extends javax.swing.JFrame{
 
             @Override
             public void actionPerformed(ActionEvent e) {
+                
                 contenedor.removeAll();
-                panelAddNoticia    = new AddNoticiaJPanel(noticiasdata,elalmacenista);
+                //panelAddNoticia    = new AddNoticiaJPanel(noticiasdata,elalmacenista,panelDeNoticias);
                 layout.putConstraint(SpringLayout.WEST,panelAddNoticia,220, SpringLayout.WEST,contenedor);
                 layout.putConstraint(SpringLayout.NORTH,panelAddNoticia,120, SpringLayout.NORTH,contenedor);
+                layout.putConstraint(SpringLayout.WEST,panelDeNoticias,710, SpringLayout.WEST,contenedor);                                                                                                //****************************************************************************///By Huaca
+                layout.putConstraint(SpringLayout.NORTH,panelDeNoticias,120, SpringLayout.NORTH,contenedor);     
                 contenedor.add(panelAddNoticia);
+                contenedor.add(panelDeNoticias);
                 contenedor.add(panelControlesAdmin);
                 contenedor.repaint();
+                
+                /*panelAddNoticia.btn_ingresar.addActionListener(new ActionListener() {
+
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                            contenedor.removeAll();
+                            panelAddNoticia    = new AddNoticiaJPanel(noticiasdata,elalmacenista,panelDeNoticias);
+                            layout.putConstraint(SpringLayout.WEST,panelAddNoticia,220, SpringLayout.WEST,contenedor);
+                            layout.putConstraint(SpringLayout.NORTH,panelAddNoticia,120, SpringLayout.NORTH,contenedor);
+                            layout.putConstraint(SpringLayout.WEST,panelDeNoticias,710, SpringLayout.WEST,contenedor);              
+                            layout.putConstraint(SpringLayout.NORTH,panelDeNoticias,120, SpringLayout.NORTH,contenedor);     
+                            contenedor.add(panelAddNoticia);
+                            contenedor.add(panelDeNoticias);
+                            contenedor.add(panelControlesAdmin);
+                            contenedor.repaint();
+                    }
+                });*/
             }
         });
-    } 
+        /*panelAddNoticia.btn_ingresar.addActionListener(new ActionListener() {
+
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                            contenedor.removeAll();
+                            panelAddNoticia    = new AddNoticiaJPanel(noticiasdata,elalmacenista,panelDeNoticias);
+                            layout.putConstraint(SpringLayout.WEST,panelAddNoticia,220, SpringLayout.WEST,contenedor);
+                            layout.putConstraint(SpringLayout.NORTH,panelAddNoticia,120, SpringLayout.NORTH,contenedor);
+                            layout.putConstraint(SpringLayout.WEST,panelDeNoticias,710, SpringLayout.WEST,contenedor);              
+                            layout.putConstraint(SpringLayout.NORTH,panelDeNoticias,120, SpringLayout.NORTH,contenedor);     
+                            contenedor.add(panelAddNoticia);
+                            contenedor.add(panelDeNoticias);
+                            contenedor.add(panelControlesAdmin);
+                            contenedor.repaint();
+                    }
+                });*/
+        
+    }     
+    
+        public void refrescaPantalla(){
+            contenedor.removeAll();
+                           // panelAddNoticia    = new AddNoticiaJPanel(noticiasdata,elalmacenista,panelDeNoticias);
+                            layout.putConstraint(SpringLayout.WEST,panelAddNoticia,220, SpringLayout.WEST,contenedor);
+                            layout.putConstraint(SpringLayout.NORTH,panelAddNoticia,120, SpringLayout.NORTH,contenedor);
+                            layout.putConstraint(SpringLayout.WEST,panelDeNoticias,710, SpringLayout.WEST,contenedor);              
+                            layout.putConstraint(SpringLayout.NORTH,panelDeNoticias,120, SpringLayout.NORTH,contenedor);     
+                            contenedor.add(panelAddNoticia);
+                            contenedor.add(panelDeNoticias);
+                            contenedor.add(panelControlesAdmin);
+                            contenedor.repaint();
+        }
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

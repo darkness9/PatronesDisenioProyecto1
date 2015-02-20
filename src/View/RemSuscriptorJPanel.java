@@ -1,5 +1,6 @@
 package View;
 
+import Controller.CreadorEliminadorDeSuscriptores;
 import Controller.NoticiasData;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -13,12 +14,17 @@ import javax.swing.SpringLayout;
 /**
  * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
+
+/**
+ * Clase  que hereda de JPanel y es la vista que le permite al administrador remover suscriptores
+ */
 public class RemSuscriptorJPanel extends javax.swing.JPanel{
 
     JLabel leyenda_remObs = new JLabel("ELIGE QUE SUSCRIPTOR REMOVER");
     JComboBox cbox_observadoresRem;
     JButton btn_remover = new JButton("Remover");
-    NoticiasData noticiasdataremobs = new NoticiasData();
+    NoticiasData noticiasdataremobs;
+    CreadorEliminadorDeSuscriptores creadorelimidarodesuscriptores;
     
     
     public RemSuscriptorJPanel(NoticiasData noticiasdata) {
@@ -26,8 +32,9 @@ public class RemSuscriptorJPanel extends javax.swing.JPanel{
         setPreferredSize(new Dimension(430,250));
         SpringLayout layoutpanelremobs = new SpringLayout();
         this.setLayout(layoutpanelremobs);
-        noticiasdataremobs=noticiasdata;
-        cbox_observadoresRem = new JComboBox(noticiasdataremobs.getObserversNames());
+        this.noticiasdataremobs=noticiasdata;
+        creadorelimidarodesuscriptores = new CreadorEliminadorDeSuscriptores(this.noticiasdataremobs);
+        cbox_observadoresRem = new JComboBox(creadorelimidarodesuscriptores.getNombreSuscriptor());
         
         //Configuramos leyenda_remObs y deginimos las coordenadas x,y en que estará fija.
         leyenda_remObs.setFont(new java.awt.Font("MV Boli", 1, 15));
@@ -47,10 +54,9 @@ public class RemSuscriptorJPanel extends javax.swing.JPanel{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(cbox_observadoresRem.getSelectedItem().equals("Suscriptores")){
-                    //System.out.println("No hay suscriptores por remover!");
                     JOptionPane.showMessageDialog(null, "No hay suscriptores por remover", "Hey!", JOptionPane.WARNING_MESSAGE);
                 }else{ 
-                    noticiasdataremobs.buscaObservadoraRemorer(String.valueOf(cbox_observadoresRem.getSelectedItem()));
+                    creadorelimidarodesuscriptores.peticionEliminarSuscriptorPorNombre(String.valueOf(cbox_observadoresRem.getSelectedItem()));
                     cbox_observadoresRem.setSelectedIndex(0);
                 }
                 

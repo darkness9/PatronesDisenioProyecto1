@@ -8,6 +8,10 @@ import java.util.ArrayList;
 /**
  * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
+
+/**
+ * Clase de testing del proyecto no se incluye en el diagrama ya que solo se improvisó para pruebas
+ */
 public class SuscriptorTest {
     public static void main ( String[] args ){
     

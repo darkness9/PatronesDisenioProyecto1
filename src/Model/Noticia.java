@@ -3,6 +3,11 @@ package Model;
 /**
  * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
+
+/**
+ * Clase que representa la noticia que será ingresada por el administrador, la cual forma parte del modelo y que tambien le llega a
+ * cada uno de los suscriptores (observadores)
+ */
 public class Noticia {
     String tituloNoticia;
     Persona autorNoticia;

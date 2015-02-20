@@ -18,6 +18,11 @@ import javax.swing.SpringLayout;
 /**
  * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
+
+/**
+ * Clase que representa la vista del administrador donde ingresa noticias, permite capturar los atributos de la noticia
+ * asi como validar los datos de entrada
+ */
 public class AddNoticiaJPanel extends javax.swing.JPanel{
 
     JLabel leyenda_addNoticia    = new JLabel("LLENA LOS CAMPOS DE LA NOTICIA");
@@ -160,8 +165,6 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                //elobjetolista.elmodelo.addElement(eltitulo.getText());
-                //elsusc.modelodelalista.addElement(eltitulo.getText());
                 if(eltitulo.getText().equals("")||elautor.getText().equals("")||eltexto.getText().equals("")||eldia.getSelectedIndex()==0||
                         elmes.getSelectedIndex()==0||elanio.getSelectedIndex()==0||launidad.getSelectedIndex()==0||elarea.getSelectedIndex()==0||
                         eltipo.getSelectedIndex()==0){
@@ -186,11 +189,23 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
                             String.valueOf(eldia.getSelectedItem()+"/"
                             +String.valueOf(elmes.getSelectedItem()))+"/"
                             +String.valueOf(elanio.getSelectedItem()));
+                    
+                    //Limpiamos la interfaz despues de agregar una noticias
+                    eltitulo.setText("");
+                    elautor.setText("");
+                    eltexto.setText("");
+                    eldia.setSelectedIndex(0);
+                    elmes.setSelectedIndex(0);
+                    elanio.setSelectedIndex(0);
+                    launidad.setSelectedIndex(0);
+                    elarea.setSelectedIndex(0);
+                    eltipo.setSelectedIndex(0);
                 }
                 
             }
         });
         
+        //Se agregan los elementos al JPanel
         this.add(leyenda_addNoticia);
         this.add(leyenda_tituloNoticia);
         this.add(leyenda_autorNoticia);
@@ -209,8 +224,5 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
         this.add(elmes);
         this.add(elanio);
         this.add(btn_ingresar);
-    }
-    
-    
-    
+    }    
 }

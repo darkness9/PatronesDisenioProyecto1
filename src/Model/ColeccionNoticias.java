@@ -5,6 +5,11 @@ import java.util.ArrayList;
 /**
  * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
+
+/**
+ * Clase que guarda las noticias pertenece al modelo y simula lo que seria la BD donde se
+ * podrian guargar igual las noticias
+ */
 public class ColeccionNoticias {
     ArrayList lasNoticias;
     Noticia noticia;

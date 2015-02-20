@@ -12,14 +12,19 @@ import javax.swing.SpringLayout;
 /**
  * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
+
+/**
+ * Clase que hereda de JFrame, es el contenedor donde se mostraran los Jpaneles relacionados con el administrador al igual que los metodos del panel  controlesadmin
+ * que es el panel principal de la intefaz del admin
+ */
 public class AdministradorJFrame extends javax.swing.JFrame{
 
     //Los paneles se agregan como atributos al JFrame
-    RemSuscriptorJPanel  panelRemSuscriptor;
-    AddSuscriptorJPanel  panelAddSuscriptor;
-    AddNoticiaJPanel     panelAddNoticia;
-    ControlesAdminJPanel panelControlesAdmin;
-    ListaNoticiasJPanel  panelDeNoticias;
+    RemSuscriptorJPanel  remsuscriptorjpanel;
+    AddSuscriptorJPanel  addsuscriptorjpanel;
+    AddNoticiaJPanel        addnoticiajpanel;
+    ControlesAdminJPanel controlesadminjpanel;
+    ListaNoticiasJPanel  listadenoticiasjpanel;
     NoticiasData noticiasdata = new NoticiasData();
     AlmacenistaDeNoticias elalmacenista= new AlmacenistaDeNoticias();
     boolean controlfondo=false;
@@ -37,56 +42,62 @@ public class AdministradorJFrame extends javax.swing.JFrame{
         setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         contenedor.setLayout(layout);
-        panelControlesAdmin= new ControlesAdminJPanel();
-        panelDeNoticias= new ListaNoticiasJPanel(controlfondo,440,this );       
-        layout.putConstraint(SpringLayout.WEST,panelDeNoticias,710, SpringLayout.WEST,contenedor);                                                                                                //****************************************************************************///By Huaca
-        layout.putConstraint(SpringLayout.NORTH,panelDeNoticias,120, SpringLayout.NORTH,contenedor); 
-        contenedor.add(panelDeNoticias);
-        contenedor.add(panelControlesAdmin);
-        panelAddNoticia    = new AddNoticiaJPanel(noticiasdata,elalmacenista,panelDeNoticias,this);
+        controlesadminjpanel= new ControlesAdminJPanel();
+        listadenoticiasjpanel= new ListaNoticiasJPanel(controlfondo,440,this );       
+        layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);                                                                                                //****************************************************************************///By Huaca
+        layout.putConstraint(SpringLayout.NORTH,listadenoticiasjpanel,120, SpringLayout.NORTH,contenedor); 
+        contenedor.add(listadenoticiasjpanel);
+        contenedor.add(controlesadminjpanel);
+        addnoticiajpanel    = new AddNoticiaJPanel(noticiasdata,elalmacenista,listadenoticiasjpanel,this);
         
-        //Se personalizan los eventos del panelControlesAdmin
-        panelControlesAdmin.btn_addobserver.addActionListener(new ActionListener() {
+        //Se personalizan los eventos del controlesadminjpanel
+        controlesadminjpanel.btn_addobserver.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 contenedor.removeAll();
-                panelAddSuscriptor = new AddSuscriptorJPanel(noticiasdata);
-                layout.putConstraint(SpringLayout.WEST,panelAddSuscriptor,220, SpringLayout.WEST,contenedor);
-                layout.putConstraint(SpringLayout.NORTH,panelAddSuscriptor,120, SpringLayout.NORTH,contenedor);
-                contenedor.add(panelAddSuscriptor);
-                contenedor.add(panelControlesAdmin);
+                addsuscriptorjpanel = new AddSuscriptorJPanel(noticiasdata);
+                layout.putConstraint(SpringLayout.WEST,addsuscriptorjpanel,220, SpringLayout.WEST,contenedor);
+                layout.putConstraint(SpringLayout.NORTH,addsuscriptorjpanel,120, SpringLayout.NORTH,contenedor);
+                layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);                                                                                                //****************************************************************************///By Huaca
+                layout.putConstraint(SpringLayout.NORTH,listadenoticiasjpanel,120, SpringLayout.NORTH,contenedor); 
+                contenedor.add(addsuscriptorjpanel);
+                 contenedor.add(listadenoticiasjpanel);
+                contenedor.add(controlesadminjpanel);
                 contenedor.repaint();
             }
         });
         
-        panelControlesAdmin.btn_remObserver.addActionListener(new ActionListener() {
+        controlesadminjpanel.btn_remObserver.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 contenedor.removeAll();
-                panelRemSuscriptor = new RemSuscriptorJPanel(noticiasdata);
-                layout.putConstraint(SpringLayout.WEST,panelRemSuscriptor,220, SpringLayout.WEST,contenedor);
-                layout.putConstraint(SpringLayout.NORTH,panelRemSuscriptor,120, SpringLayout.NORTH,contenedor);
-                contenedor.add(panelRemSuscriptor);
-                contenedor.add(panelControlesAdmin);
+                remsuscriptorjpanel = new RemSuscriptorJPanel(noticiasdata);
+                layout.putConstraint(SpringLayout.WEST,remsuscriptorjpanel,220, SpringLayout.WEST,contenedor);
+                layout.putConstraint(SpringLayout.NORTH,remsuscriptorjpanel,120, SpringLayout.NORTH,contenedor);
+                layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);                                                                                                //****************************************************************************///By Huaca
+                layout.putConstraint(SpringLayout.NORTH,listadenoticiasjpanel,120, SpringLayout.NORTH,contenedor); 
+                contenedor.add(remsuscriptorjpanel);
+                contenedor.add(listadenoticiasjpanel);
+                contenedor.add(controlesadminjpanel);
                 contenedor.repaint();
             }
         });
         
-        panelControlesAdmin.btn_addnoticia.addActionListener(new ActionListener() {
+        controlesadminjpanel.btn_addnoticia.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
                 
                 contenedor.removeAll();
-                layout.putConstraint(SpringLayout.WEST,panelAddNoticia,220, SpringLayout.WEST,contenedor);
-                layout.putConstraint(SpringLayout.NORTH,panelAddNoticia,120, SpringLayout.NORTH,contenedor);
-                layout.putConstraint(SpringLayout.WEST,panelDeNoticias,710, SpringLayout.WEST,contenedor);                                                                                                //****************************************************************************///By Huaca
-                layout.putConstraint(SpringLayout.NORTH,panelDeNoticias,120, SpringLayout.NORTH,contenedor);     
-                contenedor.add(panelAddNoticia);
-                contenedor.add(panelDeNoticias);
-                contenedor.add(panelControlesAdmin);
+                layout.putConstraint(SpringLayout.WEST,addnoticiajpanel,220, SpringLayout.WEST,contenedor);
+                layout.putConstraint(SpringLayout.NORTH,addnoticiajpanel,120, SpringLayout.NORTH,contenedor);
+                layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);                                                                                                //****************************************************************************///By Huaca
+                layout.putConstraint(SpringLayout.NORTH,listadenoticiasjpanel,120, SpringLayout.NORTH,contenedor);     
+                contenedor.add(addnoticiajpanel);
+                contenedor.add(listadenoticiasjpanel);
+                contenedor.add(controlesadminjpanel);
                 contenedor.repaint();
             }
         });        

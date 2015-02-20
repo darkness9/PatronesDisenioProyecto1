@@ -10,6 +10,11 @@ import javax.swing.SpringLayout;
 /**
  * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
+
+/**
+ * Clase que hereda de JPanel y representa la vista principal del adminjframe, contiene los botones con los que el administrador
+ * interactua con las otras vistas
+ */
 public class ControlesAdminJPanel extends javax.swing.JPanel {
 
     //Elementos de la interfáz//
@@ -97,24 +102,4 @@ public class ControlesAdminJPanel extends javax.swing.JPanel {
         this.add(fondo_jpanel);
         
     }
-    
-    /*public void refrescaPantalla(){
-       /this.removeAll();
-        this.add(titulo_ventana);
-        this.add(leyenda_opciones);
-        this.add(elseparador);
-        this.add(elseparador2);
-        this.add(btn_addobserver);
-        this.add(btn_remObserver);
-        this.add(btn_addnoticia);
-        this.add(cuadrofalso);
-        this.add(panelDeNoticias);
-        this.add(fondo_jpanel);
-               
-        this.removeAll();
-        this.add(panelDeNoticias);
-        this.add(btn_addnoticia);
-        this.repaint();
-    }*/
-    
 }

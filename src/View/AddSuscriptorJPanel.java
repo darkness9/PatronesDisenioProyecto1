@@ -14,6 +14,11 @@ import javax.swing.SpringLayout;
 /**
  * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
+
+/**
+ * Clase que representa la vista del administrador donde ingresa susciptores, permite capturar los atributos del suscriptor
+ * asi como validar los datos de entrada
+ */
 public class AddSuscriptorJPanel extends javax.swing.JPanel{
     
     JLabel leyenda_addObs = new JLabel("COMPLETA LOS DATOS DEL SUSCRIPTOR");
@@ -26,8 +31,8 @@ public class AddSuscriptorJPanel extends javax.swing.JPanel{
     JTextField elnombre = new JTextField(17);
     JButton btn_suscribir = new JButton("Suscribir");
     
-    CreadorDeSuscriptores elcreador = new CreadorDeSuscriptores();
-    NoticiasData noticiasdataaddsus = new NoticiasData();
+    NoticiasData noticiasdataaddsus;
+    CreadorEliminadorDeSuscriptores elcreador;
     
     public AddSuscriptorJPanel(NoticiasData noticiasdata) {
         setBackground(new java.awt.Color(0, 0, 0,50));
@@ -35,8 +40,8 @@ public class AddSuscriptorJPanel extends javax.swing.JPanel{
         //setVisible(false);
         SpringLayout layoutpaneladdobs = new SpringLayout();
         this.setLayout(layoutpaneladdobs);
-        noticiasdataaddsus=noticiasdata;
-        
+        this.noticiasdataaddsus=noticiasdata;
+        elcreador  = new CreadorEliminadorDeSuscriptores(this.noticiasdataaddsus);
         //Configuramos leyenda_addObs y deginimos las coordenadas x,y en que estará fija. 
         leyenda_addObs.setFont(new java.awt.Font("MV Boli", 1, 15));
         leyenda_addObs.setForeground(new java.awt.Color(241, 242, 235));
@@ -75,7 +80,7 @@ public class AddSuscriptorJPanel extends javax.swing.JPanel{
                     //System.out.println("Debes agregar un nombre de suscriptor");
                     JOptionPane.showMessageDialog(null, "Falta el nombre del suscriptor", "Hey!", JOptionPane.WARNING_MESSAGE);                
                 }else{
-                    elcreador.crearSuscriptor(elnombre.getText(), noticiasdataaddsus, String.valueOf(filtronoticia.getSelectedItem()));
+                    elcreador.crearSuscriptor(elnombre.getText(), String.valueOf(filtronoticia.getSelectedItem()));
                     elnombre.setText("");
                 }
             }

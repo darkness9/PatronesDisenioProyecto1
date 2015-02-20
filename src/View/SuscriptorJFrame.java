@@ -8,6 +8,10 @@ import javax.swing.SpringLayout;
 /**
  * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
+
+/**
+ * Clase que hereda de JFrame y es el contenedor que le permite al cliente ver la lista de las noticias a las cuales está suscrito
+ */
 public class SuscriptorJFrame extends javax.swing.JFrame{
     
     ListaNoticiasJPanel suscriptorpanel = new ListaNoticiasJPanel(true,270,null);

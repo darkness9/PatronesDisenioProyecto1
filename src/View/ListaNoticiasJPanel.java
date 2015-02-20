@@ -10,6 +10,11 @@ import javax.swing.SpringLayout;
 /**
  * @author Gerardo Hernández, Hugo Daniel Cabrera
  */
+
+/**
+ * Clase que hedera de JPanel y tiene como funcion mostrar las noticias corespondientes en una lista
+ * para hacerlas visibles al administrador o al suscriptor
+ */
 public class ListaNoticiasJPanel extends javax.swing.JPanel{
     
     //Elementos de la interfáz//

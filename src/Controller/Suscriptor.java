@@ -1,6 +1,5 @@
 package Controller;
 
-//import IteradoresConcretos.IteradorNoticiasSuscriptor;
 import Model.Noticia;
 import View.SuscriptorJFrame;
 import java.util.ArrayList;
@@ -8,6 +7,10 @@ import java.util.Iterator;
 
 /**
  * @author Gerardo Hernández, Hugo Daniel Cabrera
+ */
+
+/**
+ * Clase que representa al observador conncreto en el patron observador, (suscriptor) declararla de esta manera nos permite crear n instancias de suscriptores
  */
 public class Suscriptor implements ObserverInterface, DisplayElementInterface{
     

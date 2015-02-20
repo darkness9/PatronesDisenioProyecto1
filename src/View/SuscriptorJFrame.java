@@ -3,9 +3,6 @@ package View;
 import Controller.NoticiasData;
 import Controller.Suscriptor;
 import java.awt.Container;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.awt.event.WindowStateListener;
 import javax.swing.SpringLayout;
 
 /**
@@ -33,43 +30,6 @@ public class SuscriptorJFrame extends javax.swing.JFrame{
     contenedor.setLayout(layout); 
     contenedor.add(suscriptorpanel);
     this.suscriptorobjeto=suscriptor;
-    
-    /*this.addWindowListener(new WindowListener() {
-
-        @Override
-        public void windowOpened(WindowEvent e) {
-            
-        }
-
-        @Override
-        public void windowClosing(WindowEvent e) {
-            suscriptorobjeto.peticionRemover();
-        }
-
-        @Override
-        public void windowClosed(WindowEvent e) {
-            //System.out.println("You are the best");
-        }
-        @Override
-        public void windowIconified(WindowEvent e) {
-            
-        }
-
-        @Override
-        public void windowDeiconified(WindowEvent e) {
-            
-        }
-
-        @Override
-        public void windowActivated(WindowEvent e) {
-            
-        }
-
-        @Override
-        public void windowDeactivated(WindowEvent e) {
-            
-        }
-    });*/
     } 
     
     public void agregaElementoaLista(String noticia){

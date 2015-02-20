@@ -16,7 +16,6 @@ import javax.swing.SpringLayout;
 public class RemSuscriptorJPanel extends javax.swing.JPanel{
 
     JLabel leyenda_remObs = new JLabel("ELIGE QUE SUSCRIPTOR REMOVER");
-    //String[] lista_observers = new String[]{"Azcapotzalco","Iztapalapa","Lerma"};
     JComboBox cbox_observadoresRem;
     JButton btn_remover = new JButton("Remover");
     NoticiasData noticiasdataremobs = new NoticiasData();
@@ -29,6 +28,7 @@ public class RemSuscriptorJPanel extends javax.swing.JPanel{
         this.setLayout(layoutpanelremobs);
         noticiasdataremobs=noticiasdata;
         cbox_observadoresRem = new JComboBox(noticiasdataremobs.getObserversNames());
+        
         //Configuramos leyenda_remObs y deginimos las coordenadas x,y en que estará fija.
         leyenda_remObs.setFont(new java.awt.Font("MV Boli", 1, 15));
         leyenda_remObs.setForeground(new java.awt.Color(241, 242, 235));

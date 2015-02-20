@@ -17,13 +17,11 @@ public class ControlesAdminJPanel extends javax.swing.JPanel {
     JLabel titulo_ventana;
     JLabel leyenda_opciones;
     JPanel cuadrofalso;//Creo un objeto de la clase JPanel y lo utilizo como adorno de la interfaz
-    //ListaNoticiasJPanel  panelDeNoticias;
     JButton btn_addobserver;
     JButton btn_remObserver;
     JButton btn_addnoticia;
     JSeparator elseparador;
     JSeparator elseparador2;
-    //boolean controlfondo=false;
       
     public ControlesAdminJPanel() {
         setBackground(new java.awt.Color(0, 0, 0,50));
@@ -41,7 +39,6 @@ public class ControlesAdminJPanel extends javax.swing.JPanel {
         btn_addnoticia  = new JButton("Agregar noticia");
         elseparador = new JSeparator(JSeparator.VERTICAL);
         elseparador2 = new JSeparator(JSeparator.VERTICAL);
-        //panelDeNoticias =  new ListaNoticiasJPanel(this.controlfondo,440); 
         
         //Configuramos titulo_ventana y deginimos las coordenadas x,y en que estará fija.
         titulo_ventana.setFont(new java.awt.Font("MV Boli", 1, 35));
@@ -86,11 +83,6 @@ public class ControlesAdminJPanel extends javax.swing.JPanel {
         layoutpanelcontroles.putConstraint(SpringLayout.WEST,elseparador2,690, SpringLayout.WEST,this);     
         layoutpanelcontroles.putConstraint(SpringLayout.NORTH,elseparador2,130, SpringLayout.NORTH,this); 
         
-         //Configuramos panelDeNoticias y definimos las coordenadas x,y en que estará fija. 
-        //panelDeNoticias.setBackground(new java.awt.Color(0,0,0,50));
-       // layoutpanelcontroles.putConstraint(SpringLayout.WEST,panelDeNoticias,710, SpringLayout.WEST,this);                                                                                                //****************************************************************************///By Huaca
-        //layoutpanelcontroles.putConstraint(SpringLayout.NORTH,panelDeNoticias,120, SpringLayout.NORTH,this); 
-        
         /*Se personaliza el fondo_jpanel*/
         fondo_jpanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo1140x600.png")));
         
@@ -102,7 +94,6 @@ public class ControlesAdminJPanel extends javax.swing.JPanel {
         this.add(btn_remObserver);
         this.add(btn_addnoticia);
         this.add(cuadrofalso);
-        //this.add(panelDeNoticias);
         this.add(fondo_jpanel);
         
     }

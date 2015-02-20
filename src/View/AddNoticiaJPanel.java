@@ -49,7 +49,6 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
     AlmacenistaDeNoticias almacenistaaddnot;
     NoticiasData noticiasdataaddnot;
     ListaNoticiasJPanel listadenoticiaspanel;
-    AdministradorJFrame adminframe;
     //ControlesAdminJPanel controlesadminpanel;
     //SuscriptorJPanel elsusc;
     
@@ -62,9 +61,7 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
        this. noticiasdataaddnot = noticiasdata;
        this. almacenistaaddnot  = almacenista;
        this.listadenoticiaspanel=listadenoticiaspanel;
-       this.adminframe=adminframe;
-       //this.controlesadminpanel=controlesadminpanel;
-        
+       
         //Configuramos leyenda_addNoticia y deginimos las coordenadas x,y en que estará fija. 
         leyenda_addNoticia.setFont(new java.awt.Font("MV Boli", 1, 15));
         leyenda_addNoticia.setForeground(new java.awt.Color(241, 242, 235));
@@ -165,14 +162,12 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
             public void actionPerformed(ActionEvent e) {
                 //elobjetolista.elmodelo.addElement(eltitulo.getText());
                 //elsusc.modelodelalista.addElement(eltitulo.getText());
-               /* if(eltitulo.getText().equals("")||elautor.getText().equals("")||eltexto.getText().equals("")||eldia.getSelectedIndex()==0||
+                if(eltitulo.getText().equals("")||elautor.getText().equals("")||eltexto.getText().equals("")||eldia.getSelectedIndex()==0||
                         elmes.getSelectedIndex()==0||elanio.getSelectedIndex()==0||launidad.getSelectedIndex()==0||elarea.getSelectedIndex()==0||
                         eltipo.getSelectedIndex()==0){
                     JOptionPane.showMessageDialog(null, "Recuerda no dejar atributos en blanco y fijar correctamente fecha, unidad, area y tipo", "Hey!", JOptionPane.WARNING_MESSAGE);
-                }else{*/
+                }else{
                     listadenoticiaspanel.modelodelalista.addElement(eltitulo.getText()+", "+elautor.getText());
-                    //controlesadminpanel.refrescaPantalla();
-                    adminframe.refrescaPantalla();
                     noticiasdataaddnot.setAtributosNoticia(eltitulo.getText(),
                             new Persona(elautor.getText()),
                             new Unidad(String.valueOf(launidad.getSelectedItem())),
@@ -191,7 +186,7 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
                             String.valueOf(eldia.getSelectedItem()+"/"
                             +String.valueOf(elmes.getSelectedItem()))+"/"
                             +String.valueOf(elanio.getSelectedItem()));
-               // }
+                }
                 
             }
         });
@@ -214,7 +209,6 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
         this.add(elmes);
         this.add(elanio);
         this.add(btn_ingresar);
-        
     }
     
     

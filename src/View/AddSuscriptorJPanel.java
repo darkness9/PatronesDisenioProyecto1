@@ -23,7 +23,7 @@ public class AddSuscriptorJPanel extends javax.swing.JPanel{
     
     JLabel leyenda_addObs = new JLabel("COMPLETA LOS DATOS DEL SUSCRIPTOR");
     JLabel leyenda_nombreSuscriptor    = new JLabel("Nombre Suscriptor: ");
-    JLabel leyenda_filtroSuscriptor    = new JLabel("Filtro Suscriptor: ");
+    JLabel leyenda_filtroSuscriptor    = new JLabel("Interés suscriptor: ");
     String[] filtrosnoticia = new String[]{"Azcapotzalco","Iztapalapa","Xochimilco","Cuajimalpa",
         "Lerma","Ingeniería","Ciencias de la salud","Ciencias Básicas","Diseño","Ciencias Sociales",
         "Investigación","Desarrollo Tecnológico"};

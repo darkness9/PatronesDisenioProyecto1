@@ -39,8 +39,8 @@ public class ControlesAdminJPanel extends javax.swing.JPanel {
         titulo_ventana = new JLabel("¡BIENVENIDO ADMINISTRADOR!");
         leyenda_opciones = new JLabel("Opciones disponibles");
         cuadrofalso = new JPanel();
-        btn_addobserver = new JButton("Agregar suscriptor");
-        btn_remObserver = new JButton("Eliminar suscritor");
+        btn_addobserver = new JButton("Registrar suscriptor");
+        btn_remObserver = new JButton("Remover suscritor");
         btn_addnoticia  = new JButton("Agregar noticia");
         elseparador = new JSeparator(JSeparator.VERTICAL);
         elseparador2 = new JSeparator(JSeparator.VERTICAL);

@@ -15,6 +15,7 @@ import javax.swing.SpringLayout;
 public class SuscriptorJFrame extends javax.swing.JFrame{
     
     ListaNoticiasJPanel suscriptorpanel = new ListaNoticiasJPanel(true,270,null);
+    DetalleNoticiaJPanel detallenoticiajpanel = new DetalleNoticiaJPanel();
     //Se crea la referencia al panel base que trae el JFrame
     Container contenedor = getContentPane();
     SpringLayout layout = new SpringLayout();
@@ -32,7 +33,8 @@ public class SuscriptorJFrame extends javax.swing.JFrame{
     setVisible(true);
     this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
     contenedor.setLayout(layout); 
-    contenedor.add(suscriptorpanel);
+   // contenedor.add(suscriptorpanel);
+    contenedor.add(detallenoticiajpanel);
     this.suscriptorobjeto=suscriptor;
     } 
     

@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.DefaultListModel;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JScrollPane;
@@ -23,22 +24,21 @@ public class ListaNoticiasJPanel extends javax.swing.JPanel{
     
     //Elementos de la interfáz//
     private JLabel fondo_jpanel;
-    private JList listadenoticias;
+    public JList listadenoticias;
     private JScrollPane elscroll;
     public DefaultListModel modelodelalista;
-    AdministradorJFrame adminjframe;
     boolean controlfondo;
 
-    public ListaNoticiasJPanel(boolean controlfondo,int alto,AdministradorJFrame adminjframe) {
+    public ListaNoticiasJPanel(boolean controlfondo,int alto) {
         setPreferredSize(new Dimension(393,alto));
-        SpringLayout layoutpanelcontroles = new SpringLayout();
-        this.setLayout(layoutpanelcontroles);
+        SpringLayout layoutlistanoticias = new SpringLayout();
+        this.setLayout(layoutlistanoticias);
         this.controlfondo=controlfondo;
-        this.adminjframe=adminjframe;
         //inicializacion de los elementos de la interfáz//
         fondo_jpanel = new JLabel();
         modelodelalista = new DefaultListModel();
         listadenoticias = new JList(modelodelalista);
+        //detallenoticiajpanel = new DetalleNoticiaJPanel(270);
         
         //Atributos de los elementos
         listadenoticias.setOpaque(false);
@@ -49,34 +49,8 @@ public class ListaNoticiasJPanel extends javax.swing.JPanel{
         elscroll.setPreferredSize(new Dimension(393,alto));
         elscroll.setOpaque(false);
         elscroll.getViewport().setOpaque(false);     
-         
-        listadenoticias.addMouseListener(new MouseListener() {
-
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            }
-        });
+        elscroll.setBackground(new java.awt.Color(0,0,0,0));
+        
         //Se agregan los alementos al panel
         this.add(elscroll);
         if(controlfondo==true){

@@ -11,7 +11,7 @@ import java.util.ArrayList;
  * podrian guargar igual las noticias
  */
 public class ColeccionNoticias {
-    ArrayList lasNoticias;
+    public ArrayList lasNoticias;
     Noticia noticia;
 
     public ColeccionNoticias() {

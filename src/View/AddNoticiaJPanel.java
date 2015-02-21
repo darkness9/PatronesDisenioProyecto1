@@ -165,11 +165,11 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(eltitulo.getText().equals("")||elautor.getText().equals("")||eltexto.getText().equals("")||eldia.getSelectedIndex()==0||
+                /*if(eltitulo.getText().equals("")||elautor.getText().equals("")||eltexto.getText().equals("")||eldia.getSelectedIndex()==0||
                         elmes.getSelectedIndex()==0||elanio.getSelectedIndex()==0||launidad.getSelectedIndex()==0||elarea.getSelectedIndex()==0||
                         eltipo.getSelectedIndex()==0){
                     JOptionPane.showMessageDialog(null, "Recuerda no dejar atributos en blanco y fijar correctamente fecha, unidad, area y tipo", "Hey!", JOptionPane.WARNING_MESSAGE);
-                }else{
+                }else{*/
                     listadenoticiaspanel.modelodelalista.addElement(eltitulo.getText()+", "+elautor.getText());
                     noticiasdataaddnot.setAtributosNoticia(eltitulo.getText(),
                             new Persona(elautor.getText()),
@@ -191,7 +191,7 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
                             +String.valueOf(elanio.getSelectedItem()));
                     
                     //Limpiamos la interfaz despues de agregar una noticias
-                    eltitulo.setText("");
+                    /*eltitulo.setText("");
                     elautor.setText("");
                     eltexto.setText("");
                     eldia.setSelectedIndex(0);
@@ -200,7 +200,7 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
                     launidad.setSelectedIndex(0);
                     elarea.setSelectedIndex(0);
                     eltipo.setSelectedIndex(0);
-                }
+                }*/
                 
             }
         });

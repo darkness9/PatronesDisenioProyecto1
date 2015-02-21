@@ -15,7 +15,7 @@ import java.util.Iterator;
 public class Suscriptor implements ObserverInterface, DisplayElementInterface{
     
     private String nombresuscriptor;
-    private ArrayList noticiasdelsuscriptor;
+    public ArrayList noticiasdelsuscriptor;
     private NoticiasData noticiasdata;
     private String fitronoticia;
     SuscriptorJFrame elsuscriptorJframe;

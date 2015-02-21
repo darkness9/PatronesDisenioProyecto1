@@ -3,6 +3,7 @@ package View;
 
 import Controller.AlmacenistaDeNoticias;
 import Controller.NoticiasData;
+import Model.Noticia;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,8 +22,8 @@ public class AdministradorJFrame extends javax.swing.JFrame{
 
     //Los paneles se agregan como atributos al JFrame
     RemSuscriptorJPanel  remsuscriptorjpanel;
-    AddSuscriptorJPanel  addsuscriptorjpanel;
-    AddNoticiaJPanel        addnoticiajpanel;
+    AddSuscriptorJPanel   addsuscriptorjpanel;
+    AddNoticiaJPanel         addnoticiajpanel;
     ControlesAdminJPanel controlesadminjpanel;
     ListaNoticiasJPanel  listadenoticiasjpanel;
     NoticiasData noticiasdata = new NoticiasData();
@@ -43,8 +44,8 @@ public class AdministradorJFrame extends javax.swing.JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         contenedor.setLayout(layout);
         controlesadminjpanel= new ControlesAdminJPanel();
-        listadenoticiasjpanel= new ListaNoticiasJPanel(controlfondo,440,this );       
-        layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);                                                                                                //****************************************************************************///By Huaca
+        listadenoticiasjpanel= new ListaNoticiasJPanel(controlfondo,440 );       
+        layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);                                             
         layout.putConstraint(SpringLayout.NORTH,listadenoticiasjpanel,120, SpringLayout.NORTH,contenedor); 
         contenedor.add(listadenoticiasjpanel);
         contenedor.add(controlesadminjpanel);
@@ -59,7 +60,7 @@ public class AdministradorJFrame extends javax.swing.JFrame{
                 addsuscriptorjpanel = new AddSuscriptorJPanel(noticiasdata);
                 layout.putConstraint(SpringLayout.WEST,addsuscriptorjpanel,220, SpringLayout.WEST,contenedor);
                 layout.putConstraint(SpringLayout.NORTH,addsuscriptorjpanel,120, SpringLayout.NORTH,contenedor);
-                layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);                                                                                                //****************************************************************************///By Huaca
+                layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);                                                          
                 layout.putConstraint(SpringLayout.NORTH,listadenoticiasjpanel,120, SpringLayout.NORTH,contenedor); 
                 contenedor.add(addsuscriptorjpanel);
                  contenedor.add(listadenoticiasjpanel);
@@ -76,7 +77,7 @@ public class AdministradorJFrame extends javax.swing.JFrame{
                 remsuscriptorjpanel = new RemSuscriptorJPanel(noticiasdata);
                 layout.putConstraint(SpringLayout.WEST,remsuscriptorjpanel,220, SpringLayout.WEST,contenedor);
                 layout.putConstraint(SpringLayout.NORTH,remsuscriptorjpanel,120, SpringLayout.NORTH,contenedor);
-                layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);                                                                                                //****************************************************************************///By Huaca
+                layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);                       
                 layout.putConstraint(SpringLayout.NORTH,listadenoticiasjpanel,120, SpringLayout.NORTH,contenedor); 
                 contenedor.add(remsuscriptorjpanel);
                 contenedor.add(listadenoticiasjpanel);

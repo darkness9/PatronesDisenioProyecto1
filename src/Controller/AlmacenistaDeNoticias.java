@@ -14,7 +14,7 @@ import Model.*;
 public class AlmacenistaDeNoticias {
     
     private Noticia noticia;
-    private ColeccionNoticias lasNoticias = new ColeccionNoticias();
+    public ColeccionNoticias lasNoticias = new ColeccionNoticias();
 
     public AlmacenistaDeNoticias() {
     }  

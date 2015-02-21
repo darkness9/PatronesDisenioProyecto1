@@ -1,7 +1,6 @@
 package View;
 
 import Model.Noticia;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -36,10 +35,9 @@ public class DetalleNoticiaJPanel extends JPanel{
     private JList listadenoticias;
     public DefaultListModel modelodelalista;
     private JLabel fondo_jpanel;
-    Noticia lanoticiaseleccionada;
     
 
-    public DetalleNoticiaJPanel(int alto,Noticia lanoticiaseleccionada) {
+    public DetalleNoticiaJPanel(int alto) {
         fondo_jpanel = new JLabel();
         leyenda_tituloNoticia = new JLabel("Titulo Noticia");
         leyenda_autorNoticia  = new JLabel("Autor Noticia");
@@ -52,7 +50,6 @@ public class DetalleNoticiaJPanel extends JPanel{
         setPreferredSize(new Dimension(395,alto));
         SpringLayout layoutdetallenoticia = new SpringLayout();
         this.setLayout(layoutdetallenoticia);
-        this.lanoticiaseleccionada = lanoticiaseleccionada;
         modelodelalista = new DefaultListModel();
         listadenoticias = new JList(modelodelalista);
         
@@ -105,11 +102,13 @@ public class DetalleNoticiaJPanel extends JPanel{
         
         //Configuramos el boton cerrar
         layoutdetallenoticia.putConstraint(SpringLayout.WEST,cerrardetalle,175, SpringLayout.WEST,this);
-        layoutdetallenoticia.putConstraint(SpringLayout.NORTH,cerrardetalle,240, SpringLayout.NORTH,this);
+        layoutdetallenoticia.putConstraint(SpringLayout.NORTH,cerrardetalle,alto-30, SpringLayout.NORTH,this);
         
         this.add(cerrardetalle);
         this.add(elscroll);
-        fondo_jpanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo400x300.png")));
+        this.setOpaque(false);
+        this.setBackground(new java.awt.Color(0,0,0,0));
+        //fondo_jpanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo400x300.png")));
         this.add(fondo_jpanel); 
     }
 }

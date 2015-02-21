@@ -161,6 +161,7 @@ public class AddNoticiaJPanel extends javax.swing.JPanel{
         btn_ingresar.setPreferredSize(new Dimension(140, 30));
         layoutpaneladdnot.putConstraint(SpringLayout.WEST,btn_ingresar,150, SpringLayout.WEST,this);
         layoutpaneladdnot.putConstraint(SpringLayout.NORTH,btn_ingresar,350, SpringLayout.NORTH,this);
+        
         btn_ingresar.addActionListener(new ActionListener() {
 
             @Override

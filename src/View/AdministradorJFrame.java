@@ -7,6 +7,8 @@ import Model.Noticia;
 import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.SpringLayout;
 
@@ -26,6 +28,7 @@ public class AdministradorJFrame extends javax.swing.JFrame{
     AddNoticiaJPanel         addnoticiajpanel;
     ControlesAdminJPanel controlesadminjpanel;
     ListaNoticiasJPanel  listadenoticiasjpanel;
+    public DetalleNoticiaJPanel detallenoticia;
     NoticiasData noticiasdata = new NoticiasData();
     AlmacenistaDeNoticias elalmacenista= new AlmacenistaDeNoticias();
     boolean controlfondo=false;
@@ -44,11 +47,16 @@ public class AdministradorJFrame extends javax.swing.JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         contenedor.setLayout(layout);
         controlesadminjpanel= new ControlesAdminJPanel();
+        detallenoticia  = new DetalleNoticiaJPanel(440);
         listadenoticiasjpanel= new ListaNoticiasJPanel(controlfondo,440 );       
         layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);                                             
         layout.putConstraint(SpringLayout.NORTH,listadenoticiasjpanel,120, SpringLayout.NORTH,contenedor); 
+        layout.putConstraint(SpringLayout.WEST,detallenoticia,710, SpringLayout.WEST,contenedor);                                             
+        layout.putConstraint(SpringLayout.NORTH,detallenoticia,120, SpringLayout.NORTH,contenedor); 
+        
         contenedor.add(listadenoticiasjpanel);
         contenedor.add(controlesadminjpanel);
+        contenedor.add(detallenoticia);
         addnoticiajpanel    = new AddNoticiaJPanel(noticiasdata,elalmacenista,listadenoticiasjpanel,this);
         
         //Se personalizan los eventos del controlesadminjpanel
@@ -62,9 +70,12 @@ public class AdministradorJFrame extends javax.swing.JFrame{
                 layout.putConstraint(SpringLayout.NORTH,addsuscriptorjpanel,120, SpringLayout.NORTH,contenedor);
                 layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);                                                          
                 layout.putConstraint(SpringLayout.NORTH,listadenoticiasjpanel,120, SpringLayout.NORTH,contenedor); 
+                layout.putConstraint(SpringLayout.WEST,detallenoticia,710, SpringLayout.WEST,contenedor);                                             
+                layout.putConstraint(SpringLayout.NORTH,detallenoticia,120, SpringLayout.NORTH,contenedor); 
                 contenedor.add(addsuscriptorjpanel);
-                 contenedor.add(listadenoticiasjpanel);
-                contenedor.add(controlesadminjpanel);
+                contenedor.add(listadenoticiasjpanel);
+                contenedor.add(controlesadminjpanel);    
+                contenedor.add(detallenoticia);            
                 contenedor.repaint();
             }
         });
@@ -79,9 +90,12 @@ public class AdministradorJFrame extends javax.swing.JFrame{
                 layout.putConstraint(SpringLayout.NORTH,remsuscriptorjpanel,120, SpringLayout.NORTH,contenedor);
                 layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);                       
                 layout.putConstraint(SpringLayout.NORTH,listadenoticiasjpanel,120, SpringLayout.NORTH,contenedor); 
+                layout.putConstraint(SpringLayout.WEST,detallenoticia,710, SpringLayout.WEST,contenedor);                                             
+                layout.putConstraint(SpringLayout.NORTH,detallenoticia,120, SpringLayout.NORTH,contenedor); 
                 contenedor.add(remsuscriptorjpanel);
                 contenedor.add(listadenoticiasjpanel);
-                contenedor.add(controlesadminjpanel);
+                contenedor.add(controlesadminjpanel);   
+                contenedor.add(detallenoticia);             
                 contenedor.repaint();
             }
         });
@@ -95,13 +109,90 @@ public class AdministradorJFrame extends javax.swing.JFrame{
                 layout.putConstraint(SpringLayout.WEST,addnoticiajpanel,220, SpringLayout.WEST,contenedor);
                 layout.putConstraint(SpringLayout.NORTH,addnoticiajpanel,120, SpringLayout.NORTH,contenedor);
                 layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);                                                                                                //****************************************************************************///By Huaca
-                layout.putConstraint(SpringLayout.NORTH,listadenoticiasjpanel,120, SpringLayout.NORTH,contenedor);     
+                layout.putConstraint(SpringLayout.NORTH,listadenoticiasjpanel,120, SpringLayout.NORTH,contenedor);    
+                layout.putConstraint(SpringLayout.WEST,detallenoticia,710, SpringLayout.WEST,contenedor);                                             
+                layout.putConstraint(SpringLayout.NORTH,detallenoticia,120, SpringLayout.NORTH,contenedor); 
+                
+                
                 contenedor.add(addnoticiajpanel);
+                                 
                 contenedor.add(listadenoticiasjpanel);
-                contenedor.add(controlesadminjpanel);
+                
+                contenedor.add(controlesadminjpanel);     
+                contenedor.add(detallenoticia);         
                 contenedor.repaint();
             }
-        });        
+        });    
+        
+       /* addnoticiajpanel.btn_ingresar.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                contenedor.removeAll();
+                layout.putConstraint(SpringLayout.WEST,addnoticiajpanel,220, SpringLayout.WEST,contenedor);
+                layout.putConstraint(SpringLayout.NORTH,addnoticiajpanel,120, SpringLayout.NORTH,contenedor);
+                layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);             a
+                layout.putConstraint(SpringLayout.NORTH,listadenoticiasjpanel,120, SpringLayout.NORTH,contenedor);    
+                layout.putConstraint(SpringLayout.WEST,detallenoticia,710, SpringLayout.WEST,contenedor);                                             
+                layout.putConstraint(SpringLayout.NORTH,detallenoticia,120, SpringLayout.NORTH,contenedor); 
+               
+                contenedor.add(addnoticiajpanel);
+                contenedor.add(detallenoticia);                  
+                contenedor.add(listadenoticiasjpanel); 
+                
+                contenedor.add(controlesadminjpanel);
+                     
+                contenedor.repaint();
+            }
+        });   */
+        
+        listadenoticiasjpanel.listadenoticias.addMouseListener(new MouseListener() {
+
+        @Override
+        public void mouseClicked(MouseEvent e) {
+                System.out.println("Estoy en: "+listadenoticiasjpanel.listadenoticias.locationToIndex(e.getPoint())+", "+((Noticia) elalmacenista.lasNoticias.lasNoticias.get(listadenoticiasjpanel.listadenoticias.locationToIndex(e.getPoint()))).getTituloNoticia());
+                detallenoticia.modelodelalista.removeAllElements();
+                detallenoticia.leyenda_tituloNoticia.setText("Titulo: "+((Noticia) elalmacenista.lasNoticias.lasNoticias.get(listadenoticiasjpanel.listadenoticias.locationToIndex(e.getPoint()))).getTituloNoticia());
+                detallenoticia.modelodelalista.addElement(detallenoticia.leyenda_tituloNoticia.getText());
+                detallenoticia.leyenda_autorNoticia.setText("Autor: "+((Noticia) elalmacenista.lasNoticias.lasNoticias.get(listadenoticiasjpanel.listadenoticias.locationToIndex(e.getPoint()))).getAutorNoticia());
+                detallenoticia.modelodelalista.addElement(detallenoticia.leyenda_autorNoticia.getText());
+                detallenoticia.leyenda_unidadNoticia.setText("Autor: "+((Noticia) elalmacenista.lasNoticias.lasNoticias.get(listadenoticiasjpanel.listadenoticias.locationToIndex(e.getPoint()))).getUnidadNoticia());
+                detallenoticia.modelodelalista.addElement(detallenoticia.leyenda_unidadNoticia.getText());
+                detallenoticia.leyenda_areaNoticia.setText("Autor: "+((Noticia) elalmacenista.lasNoticias.lasNoticias.get(listadenoticiasjpanel.listadenoticias.locationToIndex(e.getPoint()))).getAreaNoticia());
+                detallenoticia.modelodelalista.addElement(detallenoticia.leyenda_areaNoticia.getText());
+                detallenoticia.leyenda_tipoNoticia.setText("Autor: "+((Noticia) elalmacenista.lasNoticias.lasNoticias.get(listadenoticiasjpanel.listadenoticias.locationToIndex(e.getPoint()))).getTipoNoticia());
+                detallenoticia.modelodelalista.addElement(detallenoticia.leyenda_tipoNoticia.getText());
+                detallenoticia.leyenda_textoNoticia.setText("Autor: "+((Noticia) elalmacenista.lasNoticias.lasNoticias.get(listadenoticiasjpanel.listadenoticias.locationToIndex(e.getPoint()))).getTextoNoticia());
+                detallenoticia.modelodelalista.addElement(detallenoticia.leyenda_textoNoticia.getText());
+                detallenoticia.leyenda_fechaNoticia.setText("Autor: "+((Noticia) elalmacenista.lasNoticias.lasNoticias.get(listadenoticiasjpanel.listadenoticias.locationToIndex(e.getPoint()))).getFechaNoticia());
+                detallenoticia.modelodelalista.addElement(detallenoticia.leyenda_fechaNoticia.getText());
+                listadenoticiasjpanel.setVisible(false);
+                detallenoticia.setVisible(true);
+        }
+
+        @Override
+        public void mousePressed(MouseEvent e) {}
+
+        @Override
+        public void mouseReleased(MouseEvent e) {}
+
+        @Override
+        public void mouseEntered(MouseEvent e) {}
+
+        @Override
+        public void mouseExited(MouseEvent e) {}
+    });
+    
+    detallenoticia.cerrardetalle.addActionListener(new ActionListener() {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            listadenoticiasjpanel.setVisible(true);
+            detallenoticia.setVisible(false);
+        }
+    });
+        
     }     
     
     public static void main(String args[]) {

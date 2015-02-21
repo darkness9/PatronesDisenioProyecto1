@@ -37,7 +37,7 @@ public class SuscriptorJFrame extends javax.swing.JFrame{
     setResizable(false);
     setVisible(true);
     this.setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-    detallenoticia  = new DetalleNoticiaJPanel(270);
+    detallenoticia  = new DetalleNoticiaJPanel(270,true);
     listanoticiasjpanel = new ListaNoticiasJPanel(true,270);
     contenedor.setLayout(layout);    
     contenedor.add(listanoticiasjpanel);

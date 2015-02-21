@@ -47,7 +47,8 @@ public class AdministradorJFrame extends javax.swing.JFrame{
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         contenedor.setLayout(layout);
         controlesadminjpanel= new ControlesAdminJPanel();
-        detallenoticia  = new DetalleNoticiaJPanel(440);
+        detallenoticia  = new DetalleNoticiaJPanel(440,false);
+        detallenoticia.setVisible(false);
         listadenoticiasjpanel= new ListaNoticiasJPanel(controlfondo,440 );       
         layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);                                             
         layout.putConstraint(SpringLayout.NORTH,listadenoticiasjpanel,120, SpringLayout.NORTH,contenedor); 
@@ -74,8 +75,9 @@ public class AdministradorJFrame extends javax.swing.JFrame{
                 layout.putConstraint(SpringLayout.NORTH,detallenoticia,120, SpringLayout.NORTH,contenedor); 
                 contenedor.add(addsuscriptorjpanel);
                 contenedor.add(listadenoticiasjpanel);
+                contenedor.add(detallenoticia);
                 contenedor.add(controlesadminjpanel);    
-                contenedor.add(detallenoticia);            
+                            
                 contenedor.repaint();
             }
         });
@@ -94,8 +96,9 @@ public class AdministradorJFrame extends javax.swing.JFrame{
                 layout.putConstraint(SpringLayout.NORTH,detallenoticia,120, SpringLayout.NORTH,contenedor); 
                 contenedor.add(remsuscriptorjpanel);
                 contenedor.add(listadenoticiasjpanel);
+                contenedor.add(detallenoticia); 
                 contenedor.add(controlesadminjpanel);   
-                contenedor.add(detallenoticia);             
+                            
                 contenedor.repaint();
             }
         });
@@ -111,20 +114,16 @@ public class AdministradorJFrame extends javax.swing.JFrame{
                 layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);                                                                                                //****************************************************************************///By Huaca
                 layout.putConstraint(SpringLayout.NORTH,listadenoticiasjpanel,120, SpringLayout.NORTH,contenedor);    
                 layout.putConstraint(SpringLayout.WEST,detallenoticia,710, SpringLayout.WEST,contenedor);                                             
-                layout.putConstraint(SpringLayout.NORTH,detallenoticia,120, SpringLayout.NORTH,contenedor); 
-                
-                
+                layout.putConstraint(SpringLayout.NORTH,detallenoticia,120, SpringLayout.NORTH,contenedor);
                 contenedor.add(addnoticiajpanel);
-                                 
                 contenedor.add(listadenoticiasjpanel);
-                
                 contenedor.add(controlesadminjpanel);     
                 contenedor.add(detallenoticia);         
                 contenedor.repaint();
             }
         });    
         
-       /* addnoticiajpanel.btn_ingresar.addActionListener(new ActionListener() {
+       addnoticiajpanel.btn_ingresar.addActionListener(new ActionListener() {
 
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -132,20 +131,17 @@ public class AdministradorJFrame extends javax.swing.JFrame{
                 contenedor.removeAll();
                 layout.putConstraint(SpringLayout.WEST,addnoticiajpanel,220, SpringLayout.WEST,contenedor);
                 layout.putConstraint(SpringLayout.NORTH,addnoticiajpanel,120, SpringLayout.NORTH,contenedor);
-                layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);             a
+                layout.putConstraint(SpringLayout.WEST,listadenoticiasjpanel,710, SpringLayout.WEST,contenedor);             
                 layout.putConstraint(SpringLayout.NORTH,listadenoticiasjpanel,120, SpringLayout.NORTH,contenedor);    
                 layout.putConstraint(SpringLayout.WEST,detallenoticia,710, SpringLayout.WEST,contenedor);                                             
-                layout.putConstraint(SpringLayout.NORTH,detallenoticia,120, SpringLayout.NORTH,contenedor); 
-               
+                layout.putConstraint(SpringLayout.NORTH,detallenoticia,120, SpringLayout.NORTH,contenedor);
                 contenedor.add(addnoticiajpanel);
-                contenedor.add(detallenoticia);                  
                 contenedor.add(listadenoticiasjpanel); 
-                
+                contenedor.add(detallenoticia);
                 contenedor.add(controlesadminjpanel);
-                     
                 contenedor.repaint();
             }
-        });   */
+        }); 
         
         listadenoticiasjpanel.listadenoticias.addMouseListener(new MouseListener() {
 

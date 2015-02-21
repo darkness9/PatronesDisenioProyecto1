@@ -35,9 +35,10 @@ public class DetalleNoticiaJPanel extends JPanel{
     private JList listadenoticias;
     public DefaultListModel modelodelalista;
     private JLabel fondo_jpanel;
+    boolean confondo;
     
 
-    public DetalleNoticiaJPanel(int alto) {
+    public DetalleNoticiaJPanel(int alto,boolean confondo) {
         fondo_jpanel = new JLabel();
         leyenda_tituloNoticia = new JLabel("Titulo Noticia");
         leyenda_autorNoticia  = new JLabel("Autor Noticia");
@@ -50,6 +51,7 @@ public class DetalleNoticiaJPanel extends JPanel{
         setPreferredSize(new Dimension(395,alto));
         SpringLayout layoutdetallenoticia = new SpringLayout();
         this.setLayout(layoutdetallenoticia);
+        this.confondo=confondo;
         modelodelalista = new DefaultListModel();
         listadenoticias = new JList(modelodelalista);
         
@@ -107,8 +109,12 @@ public class DetalleNoticiaJPanel extends JPanel{
         this.add(cerrardetalle);
         this.add(elscroll);
         this.setOpaque(false);
+        if(confondo){
+            fondo_jpanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo400x300.png")));
+        }else{
         this.setBackground(new java.awt.Color(0,0,0,0));
-        //fondo_jpanel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/fondo400x300.png")));
+        }
+        
         this.add(fondo_jpanel); 
     }
 }
